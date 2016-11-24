@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -22,6 +23,8 @@ public class CreaProve {
 	private String nomeDitta;
 	private String modelloMF;
 	private String numeroRapportoProva;
+    private Date date;
+
 
 	@ManagedProperty("#{proveService}")
 	private ProveService service;
@@ -37,6 +40,20 @@ public class CreaProve {
 		prove = service.createProve();
 		droppedProve = new ArrayList<Prova>();
 	}
+
+	
+	
+	public Date getDate() {
+		return date;
+	}
+
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
 
 	public void onProveDrop(DragDropEvent ddEvent) {
 		Prova p = ((Prova) ddEvent.getData());

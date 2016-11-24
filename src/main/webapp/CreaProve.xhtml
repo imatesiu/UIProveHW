@@ -34,6 +34,8 @@
   <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
         <p:inputText id="nprova" value="#{creaProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
        
+        <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
+        <p:calendar id="multi" value="#{creaProve.date}" pages="3" />
        
     </h:panelGrid>
     
