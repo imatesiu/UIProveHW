@@ -17,11 +17,11 @@
  
     <h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
-        <p:autoComplete id="acSimple" value="#{autoCompleteView.ditta}" completeMethod="#{autoCompleteView.completeTextDitta}" />
+        <p:autoComplete id="acSimple" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
  
        
         <p:outputLabel value="Modello Content:" for="themeModello" />
-        <p:autoComplete id="themeModello" value="#{autoCompleteView.theme}" completeMethod="#{autoCompleteView.completeTheme}"
+        <p:autoComplete id="themeModello" value="#{autoCompleteView.theme1}" completeMethod="#{autoCompleteView.completeTheme}"
                         var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="themeConverter" forceSelection="true">
             <p:column>
                 <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" />
@@ -68,7 +68,7 @@
                 groupBy="#{autoCompleteView.getThemeGroup(theme)}" scrollHeight="250"/>
     </h:panelGrid>
  
-    <p:commandButton value="Submit" icon="ui-icon-check" update="output msgs" /> <!--   oncomplete="PF('dlg').show()" -->
+    <!-- <p:commandButton value="Submit" icon="ui-icon-check" update="output msgs" />   oncomplete="PF('dlg').show()" -->
        
 
     </h:form>
