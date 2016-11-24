@@ -1,20 +1,24 @@
 
 import java.io.Serializable;
 
+import isti.cnr.sse.rest.data.pojo.TipoProve;
+
 public class Prova implements Serializable {
     
     public String nomeProva;
     public String descrizioneProva;
+    public TipoProve tp;
 
     public boolean selezionabile;
 
     public Prova() {}
     
         
-    public Prova(String id, String brand, boolean sold) {
-        this.nomeProva = id;
-        this.descrizioneProva = brand;
+    public Prova(String nome, String desc, TipoProve tp, boolean sold) {
+        this.nomeProva = nome;
+        this.descrizioneProva = desc;
         this.selezionabile = sold;
+        this.tp  = tp; 
     }
 
    

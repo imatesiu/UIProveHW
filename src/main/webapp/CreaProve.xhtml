@@ -66,8 +66,8 @@
                
               
                  <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close">  <!-- update=":ProveForm:display" oncomplete="PF('ProveDialog').show()"--> 
-                        <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selectedProva}" />
+                 <p:commandButton icon="ui-icon-close" update=":ProveForm" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                        <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selected}" />
                     </p:commandButton>
                 </p:column>
             </p:dataTable>

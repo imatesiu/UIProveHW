@@ -7,6 +7,8 @@ import java.util.UUID;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import isti.cnr.sse.rest.data.pojo.TipoProve;
+
 @ManagedBean(name = "proveService")
 @ApplicationScoped
 public class ProveService {
@@ -43,32 +45,26 @@ public class ProveService {
     
     public List<Prova> createProve() {
         List<Prova> list = new ArrayList<Prova>();
-		for(int i = 0 ; i < 9 ; i++) {
-			list.add(new Prova(getRandomId(), getRandomBrand(),  getRandomSoldState()));
-        }
+		
+	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneSenzaVincoloFiscale ,  getRandomSoldState()));
+	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState()));
+
+	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState()));
+	    list.add( new Prova ("Disturbi Elettromagnetici", "desc",TipoProve.DisturbiElettromagnetici ,  getRandomSoldState()));
+
+	    list.add( new Prova ("Impermeabilità", "desc",TipoProve.Impermeabilita ,  getRandomSoldState()));
+	    list.add( new Prova ("Guasto e Malfunzionamento", "desc",TipoProve.Guastoemalfunzionamento ,  getRandomSoldState()));
+
+
+	    list.add( new Prova ("Termiche", "desc",TipoProve.Termiche ,  getRandomSoldState()));
+	    list.add( new Prova ("Vibrazione", "desc",TipoProve.Vibrazione ,  getRandomSoldState()));
+	    
+	    list.add( new Prova ("Scariche Elettrostatiche", "desc",TipoProve.ScaricheElettrostatiche ,  getRandomSoldState()));
         
         return list;
     }
     
-    private String getRandomId() {
-		return UUID.randomUUID().toString().substring(0, 8);
-	}
-    
-    private int getRandomYear() {
-		return (int) (Math.random() * 50 + 1960);
-	}
-	
-	private String getRandomColor() {
-		return colors[(int) (Math.random() * 10)];
-	}
-	
-	private String getRandomBrand() {
-		return brands[(int) (Math.random() * 10)];
-	}
-    
-    private int getRandomPrice() {
-		return (int) (Math.random() * 100000);
-	}
+   
     
     private boolean getRandomSoldState() {
 		return (Math.random() > 0.5) ? true: false;
