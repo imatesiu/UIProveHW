@@ -6,7 +6,7 @@
 	<!-- File(s) appended to a request for a URL that is not mapped to a web 
 		component -->
 	<welcome-file-list>
-		<welcome-file>InsertNewMF.xhtml</welcome-file>
+		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<!-- Define the JSF servlet (manages the request processing life cycle for 
@@ -16,6 +16,11 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bootstrap</param-value>
+	</context-param>
 
 	<!-- Map following files to the JSF servlet -->
 	<servlet-mapping>

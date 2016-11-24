@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Insert New Ditta</title>
+</h:head>
+
+<h:body>
+    <h:form>
+
+ <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+       <p:outputLabel value="Ditta:" for="inputDitta" />
+       <p:inputText id="inputDitta" value="" />
+       
+       <p:outputLabel value="Indirizzo:" for="inputindirizzo" />
+       <p:inputText id="inputindirizzo" value="" />
+       
+       <p:outputLabel value="P.IVA or C.F.:" for="inputPartitaIVA" />
+       <p:inputText id="inputPartitaIVA" value="" />
+       
+     
+    
+    </h:panelGrid>
+    
+    
+    </h:form>
+    
+    <h:form>
+    <p:growl id="messages" />
+ 
+    <p:splitButton value="Save" actionListener="#{insertDitta.save}" update="messages" icon="ui-icon-disk">
+        <p:menuitem value="Close" actionListener="#{insertDitta.close}" ajax="false" icon="ui-icon-close" />
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+        
+    </p:splitButton>
+    
+    
+    
+</h:form>
+    
+</h:body>
+</html>

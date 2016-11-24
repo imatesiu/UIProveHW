@@ -22,7 +22,7 @@ public class HelloWorld {
         this.lastName = lastName;
     }
 
-    public String showGreeting() {
+    public String getshowGreeting() {
         return "Hello" + " " + firstName + " " + lastName + "!";
     }
 }
