@@ -17,17 +17,17 @@
  
     <h:panelGrid columns="2" cellpadding="5">
        <p:outputLabel value="Ditta:" for="inputDitta" />
-       <p:selectOneMenu id="inputditta" value="#{insertMF.nomeDitta}" style="width:125px">
+       <p:selectOneMenu id="inputDitta" value="#{insertMF.nomeDitta}" style="width:125px" required="true">
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItems value="#{insertMF.ditta}" />
             
         </p:selectOneMenu>
        
        <p:outputLabel value="Nome Dispositivo in Prova:" for="inputnomeDispo" />
-       <p:inputText id="inputnomeDispo" value="#{insertMF.nomeDispositivo}" />
+       <p:inputText id="inputnomeDispo" value="#{insertMF.nomeDispositivo}" required="true" requiredMessage="Please enter name" />
        
        <p:outputLabel value="Numero Rapporto di Prova:" for="inputnrapportoprova" />
-       <p:inputText id="inputnrapportoprova" value="#{insertMF.numeroRapportoProva}" />
+       <p:inputText id="inputnrapportoprova" value="#{insertMF.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
        
 
        

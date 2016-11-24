@@ -64,7 +64,7 @@ public class InsertMF {
 	}
 
 	public void save(ActionEvent actionEvent) {
-		addMessage("Data saved");
+		addMessage("Data saved"+numeroRapportoProva);
 	}
 
 	public void close(ActionEvent actionEvent) {
