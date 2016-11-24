@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Insert New MF</title>
+</h:head>
+
+<h:body>
+    <h:form>
+
+ <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
+        <p:autoComplete id="acSimple" value="#{autoCompleteView.ditta}" completeMethod="#{autoCompleteView.completeTextDitta}" />
+ 
+       
+        <p:outputLabel value="Modello Content:" for="themeModello" />
+        <p:autoComplete id="themeModello" value="#{autoCompleteView.theme}" completeMethod="#{autoCompleteView.completeTheme}"
+                        var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="themeConverter" forceSelection="true">
+            <p:column>
+                <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" />
+            </p:column>
+ 
+            <p:column>
+                <h:outputText value="#{theme.displayName}" />
+            </p:column>
+        </p:autoComplete>
+ 
+        <p:outputLabel value="Multiple:" for="themes" />
+        <p:autoComplete id="themes" multiple="true" value="#{autoCompleteView.selectedThemes}" completeMethod="#{autoCompleteView.completeTheme}"
+                        var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="themeConverter" forceSelection="true">
+            <p:column style="width:10%">
+                <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" />
+            </p:column>
+ 
+            <p:column>
+                <h:outputText value="#{theme.displayName}" />
+            </p:column>
+        </p:autoComplete>
+ 
+        <p:outputLabel value="Itemtip:" for="itemTip" />
+        <p:autoComplete id="itemTip" value="#{autoCompleteView.theme3}" completeMethod="#{autoCompleteView.completeTheme}"
+                        var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="themeConverter" forceSelection="true">
+            <f:facet name="itemtip">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <f:facet name="header">
+                        <h:outputText styleClass="ui-theme ui-theme-#{theme.name}" style="margin-left:50px" />
+                    </f:facet>
+ 
+                    <h:outputText value="Display:" />
+                    <h:outputText value="#{theme.displayName}" />
+ 
+                    <h:outputText value="Key" />
+                    <h:outputText value="#{theme.name}" />
+                </h:panelGrid>
+            </f:facet>
+        </p:autoComplete>
+ 
+        <p:outputLabel value="Group:" for="group" />
+        <p:autoComplete id="group" value="#{autoCompleteView.theme4}" completeMethod="#{autoCompleteView.completeThemeContains}"
+                var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="themeConverter"
+                groupBy="#{autoCompleteView.getThemeGroup(theme)}" scrollHeight="250"/>
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" icon="ui-icon-check" update="output msgs" /> <!--   oncomplete="PF('dlg').show()" -->
+       
+
+    </h:form>
+    
+    
+    <div id="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="/dock.xhtml" />
+	    	</ui:insert>
+    	    </div>
+    
+    
+</h:body>
+</html>
