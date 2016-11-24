@@ -21,8 +21,8 @@ public class CreaProve {
 	private String modelloMF;
 	private String numeroRapportoProva;
 	
-	@ManagedProperty("#{carService}")
-    private CarService service;
+	@ManagedProperty("#{proveService}")
+    private ProveService service;
 
     private List<Prova> prove;
     
@@ -32,7 +32,7 @@ public class CreaProve {
     
     @PostConstruct
     public void init() {
-        prove = service.createCars(9);
+        prove = service.createProve();
         droppedProve = new ArrayList<Prova>();
     }
     
@@ -43,7 +43,7 @@ public class CreaProve {
         prove.remove(car);
     }
     
-    public void setService(CarService service) {
+    public void setService(ProveService service) {
         this.service = service;
     }
 

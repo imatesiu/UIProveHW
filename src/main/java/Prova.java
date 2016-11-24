@@ -3,77 +3,55 @@ import java.io.Serializable;
 
 public class Prova implements Serializable {
     
-    public String id;
-    public String brand;
-    public int year;
-    public String color;
-    public int price;
-    public boolean sold;
+    public String nomeProva;
+    public String descrizioneProva;
+
+    public boolean selezionabile;
 
     public Prova() {}
     
-    public Prova(String id, String brand, int year, String color) {
-        this.id = id;
-        this.brand = brand;
-        this.year = year;
-        this.color = color;
+        
+    public Prova(String id, String brand, boolean sold) {
+        this.nomeProva = id;
+        this.descrizioneProva = brand;
+        this.selezionabile = sold;
     }
+
+   
+
     
-    public Prova(String id, String brand, int year, String color, int price, boolean sold) {
-        this.id = id;
-        this.brand = brand;
-        this.year = year;
-        this.color = color;
-        this.price = price;
-        this.sold = sold;
-    }
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getNomeProva() {
+		return nomeProva;
+	}
 
-    public String getBrand() {
-        return brand;
-    }
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
-    public int getYear() {
-        return year;
-    }
-    public void setYear(int year) {
-        this.year = year;
-    }
+	public void setNomeProva(String nomeProva) {
+		this.nomeProva = nomeProva;
+	}
 
-    public String getColor() {
-        return color;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
 
-    public int getPrice() {
-        return price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
+	public String getDescrizioneProva() {
+		return descrizioneProva;
+	}
 
-    public boolean isSold() {
-        return sold;
+
+	public void setDescrizioneProva(String descrizioneProva) {
+		this.descrizioneProva = descrizioneProva;
+	}
+
+
+	public boolean isSelezionabile() {
+        return selezionabile;
     }
-    public void setSold(boolean sold) {
-        this.sold = sold;
+    public void setSelezionabile(boolean sold) {
+        this.selezionabile = sold;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 59 * hash + (this.nomeProva != null ? this.nomeProva.hashCode() : 0);
         return hash;
     }
 
@@ -86,7 +64,7 @@ public class Prova implements Serializable {
             return false;
         }
         final Prova other = (Prova) obj;
-        if ((this.id == null) ? (other.id != null) : !this.id.equals(other.id)) {
+        if ((this.nomeProva == null) ? (other.nomeProva != null) : !this.nomeProva.equals(other.nomeProva)) {
             return false;
         }
         return true;

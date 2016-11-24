@@ -7,9 +7,9 @@ import java.util.UUID;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name = "carService")
+@ManagedBean(name = "proveService")
 @ApplicationScoped
-public class CarService {
+public class ProveService {
     
     private final static String[] colors;
 	
@@ -41,10 +41,10 @@ public class CarService {
 		brands[9] = "Ford";
 	}
     
-    public List<Prova> createCars(int size) {
+    public List<Prova> createProve() {
         List<Prova> list = new ArrayList<Prova>();
-		for(int i = 0 ; i < size ; i++) {
-			list.add(new Prova(getRandomId(), getRandomBrand(), getRandomYear(), getRandomColor(), getRandomPrice(), getRandomSoldState()));
+		for(int i = 0 ; i < 9 ; i++) {
+			list.add(new Prova(getRandomId(), getRandomBrand(),  getRandomSoldState()));
         }
         
         return list;

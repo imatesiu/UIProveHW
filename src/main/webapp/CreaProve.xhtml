@@ -41,7 +41,7 @@
     
     <p:fieldset id="availableProvesField" legend="AvailableProves">
         <p:dataGrid id="availableProves" var="prova" value="#{creaProve.prove}" columns="3">
-            <p:panel id="pnl" header="#{prova.id}" style="text-align:center">
+            <p:panel id="pnl" header="#{prova.nomeProva}" style="text-align:center">
                 <h:panelGrid columns="1" style="width:100%">
                     <p:graphicImage name="/demo/images/car/#{car.brand}.gif" />
                 </h:panelGrid>
@@ -56,11 +56,11 @@
             <h:outputText value="!!!Drop here!!!" rendered="#{empty creaProve.droppedProve}" style="font-size:24px;" />
             <p:dataTable id="selectedProvesTable" var="prove" value="#{creaProve.droppedProve}" rendered="#{not empty creaProve.droppedProve}">
                 <p:column headerText="Nome Prova">
-                    <h:outputText value="#{prove.id}" />
+                    <h:outputText value="#{prove.nomeProva}" />
                 </p:column>
  
                 <p:column headerText="Descrizione">
-                    <h:outputText value="#{prove.year}" />
+                    <h:outputText value="#{prove.descrizioneProva}" />
                 </p:column>
  
                
