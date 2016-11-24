@@ -17,22 +17,29 @@
  
     <h:panelGrid columns="2" cellpadding="5">
        <p:outputLabel value="Ditta:" for="inputDitta" />
-       <p:inputText id="inputDitta" value="" />
+       <p:selectOneMenu id="inputditta" value="#{insertMF.nomeDitta}" style="width:125px">
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItems value="#{insertMF.ditta}" />
+            
+        </p:selectOneMenu>
        
-       <p:outputLabel value="Indirizzo:" for="inputindirizzo" />
-       <p:inputText id="inputindirizzo" value="" />
+       <p:outputLabel value="Nome Dispositivo in Prova:" for="inputnomeDispo" />
+       <p:inputText id="inputnomeDispo" value="#{insertMF.nomeDispositivo}" />
        
-       <p:outputLabel value="P.IVA or C.F.:" for="inputPartitaIVA" />
-       <p:inputText id="inputPartitaIVA" value="" />
+       <p:outputLabel value="Numero Rapporto di Prova:" for="inputnrapportoprova" />
+       <p:inputText id="inputnrapportoprova" value="#{insertMF.numeroRapportoProva}" />
+       
+
        
      
     
     </h:panelGrid>
-    </h:form>
-    <h:form>
+    
+    <br/><br/>
+  
     <p:growl id="messages" />
  
-    <p:splitButton value="Save" actionListener="#{insertMF.save}" update="messages" icon="ui-icon-disk" styleClass="ui-priority-primary" >
+    <p:splitButton value="Save" actionListener="#{insertMF.save}" update="messages" icon="ui-icon-disk"  >
         <p:menuitem value="Close" actionListener="#{insertMF.close}" ajax="false" icon="ui-icon-close" />
         <p:separator />
         <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
