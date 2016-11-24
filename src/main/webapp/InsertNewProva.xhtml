@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Insert New Prova</title>
+</h:head>
+
+<h:body>
+    <h:form>
+
+ <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
+        <p:autoComplete id="acSimple" value="#{insertNewProva.nomeDitta}" completeMethod="#{insertNewProva.completeDitta}" />
+ 
+  <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
+        <p:autoComplete id="acemodello" value="#{insertNewProva.nomeDitta}" completeMethod="#{insertNewProva.completeDitta}" />
+ 
+  <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
+        <p:inputText id="nprova" value="#{insertNewProva.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
+       
+       
+    </h:panelGrid>
+ 
+    <!-- <p:commandButton value="Submit" icon="ui-icon-check" update="output msgs" />   oncomplete="PF('dlg').show()" -->
+       
+
+    </h:form>
+    
+    
+    <div id="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="/dock.xhtml" />
+	    	</ui:insert>
+    	    </div>
+    
+    
+</h:body>
+</html>

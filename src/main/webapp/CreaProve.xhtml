@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Crea Prove</title>
+</h:head>
+
+
+
+<h:body>
+<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+    <h:form>
+
+ <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
+        <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" completeMethod="#{creaProve.completeDitta}" />
+ 
+  <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
+        <p:autoComplete id="acemodello" value="#{creaProve.modelloMF}" completeMethod="#{creaProve.completeModelloMF}" />
+ 
+  <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
+        <p:inputText id="nprova" value="#{creaProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
+       
+       
+    </h:panelGrid>
+    
+    <p:separator />
+    
+    
+    
+    <br/>
+    <br/>
+   
+    <p:growl id="messages" />
+ 
+    <p:splitButton value="Save" actionListener="#{insertDitta.save}" update="messages" icon="ui-icon-disk">
+        <p:menuitem value="Close" actionListener="#{insertDitta.close}" ajax="false" icon="ui-icon-close" />
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+        
+    </p:splitButton>
+    
+    
+    
+</h:form>
+    
+</h:body>
+</html>
