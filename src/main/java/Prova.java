@@ -24,8 +24,19 @@ public class Prova implements Serializable {
    
 
     
+    
 
-    public String getNomeProva() {
+    public TipoProve getTp() {
+		return tp;
+	}
+
+
+	public void setTp(TipoProve tp) {
+		this.tp = tp;
+	}
+
+
+	public String getNomeProva() {
 		return nomeProva;
 	}
 

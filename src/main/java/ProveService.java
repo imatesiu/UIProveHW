@@ -46,7 +46,7 @@ public class ProveService {
     public List<Prova> createProve() {
         List<Prova> list = new ArrayList<Prova>();
 		
-	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneSenzaVincoloFiscale ,  getRandomSoldState()));
+	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale ,  getRandomSoldState()));
 	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState()));
 
 	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState()));
