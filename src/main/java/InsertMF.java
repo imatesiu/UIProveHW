@@ -25,10 +25,9 @@ public class InsertMF {
 
 	@PostConstruct
 	public void init() {
-		//cars
-
-		SelectItem[] items = new SelectItem[] {new SelectItem("BMW", "BMW"), new SelectItem("Mercedes", "Mercedes"), new SelectItem("Volkswagen", "Volkswagen")};
-		ListDitta = new ArrayList<SelectItem>(Arrays.asList(items));
+		
+		//TODO read list DITTa from rest
+		ListDitta = Init.init();
 		
 	}
 

@@ -13,6 +13,10 @@ import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.event.DragDropEvent;
+
+import isti.cnr.sse.rest.data.Ditta;
+import isti.cnr.sse.rest.data.Factory;
+
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean
@@ -35,10 +39,13 @@ public class CreaProve {
 
 	public Prova selected;
 
+	private List<Ditta> ditte;
+
 	@PostConstruct
 	public void init() {
 		prove = service.createProve();
 		droppedProve = new ArrayList<Prova>();
+		ditte = Init.ini();
 	}
 
 
@@ -90,7 +97,8 @@ public class CreaProve {
 	}
 
 	public List<String> completeModelloMF(String query) {
-		List<String> allThemes =  new ArrayList<String>();
+		
+		List<String> allThemes =  Factory.getNomeModello(ditte, getNomeDitta());;
 		List<String> filteredThemes = new ArrayList<String>();
 
 		for (int i = 0; i < allThemes.size(); i++) {
@@ -104,7 +112,7 @@ public class CreaProve {
 	}
 
 	public List<String> completeDitta(String query) {
-		List<String> allThemes =  new ArrayList<String>();
+		List<String> allThemes = Factory.getNomeDitta(ditte);
 		List<String> filteredThemes = new ArrayList<String>();
 
 		for (int i = 0; i < allThemes.size(); i++) {
@@ -113,7 +121,7 @@ public class CreaProve {
 				filteredThemes.add(skin);
 			}
 		}
-
+		
 		return filteredThemes;
 	}
 
