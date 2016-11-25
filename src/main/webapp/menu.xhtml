@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+
+<h:body>
+<h:form>
+ <p:menu toggleable="true">
+        <p:submenu label="Crea">
+            <p:menuitem value="Ditta" actionListener="#{menuView.newDitta}"  update=":contentPanel" icon="ui-icon-disk" />
+            <p:menuitem value="Modello" actionListener="#{menuView.newModello}" update=":contentPanel" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Prove" actionListener="#{menuView.newProve}" update=":contentPanel" icon="ui-icon-arrowrefresh-1-w"/>
+
+        </p:submenu>
+         <p:submenu label="Modifica">
+          <p:menuitem value="Prove" actionListener="#{menuView.updateProva}" update=":contentPanel" icon="ui-icon-arrowrefresh-1-w"/>
+       
+         </p:submenu>
+         <p:submenu label="Statistiche">
+          <p:menuitem value="Prove" actionListener="#{menuView.statisticProve}" update=":contentPanel" icon="ui-icon-arrowrefresh-1-w"/>
+     <!--      <p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+		<p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+       --> 
+         </p:submenu>
+       
+    </p:menu>
+</h:form>
+</h:body>
+
+</html>
