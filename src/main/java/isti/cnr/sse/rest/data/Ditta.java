@@ -113,11 +113,7 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 
 
 
-	@Override
-	public String toString() {
-		return "Ditta [nomeDitta=" + nomeDitta + ", indirizzo=" + indirizzo + ", piva=" + piva + "]";
-	}
-
+	
 
 
 	@Override
@@ -141,6 +137,26 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 		
 		
 		return Pair.of(l, r);
+	}
+
+
+
+	public List<ModelloMF> queryByName(String query) {
+		List<ModelloMF> queried = new ArrayList<ModelloMF>();
+
+		for(ModelloMF player: this.misuratoriFiscali){
+
+			if(player.getNomeModello().startsWith(query)){
+
+				queried.add(player);
+
+			}
+
+		}
+
+		return queried;
+
+		
 	}
 
 	

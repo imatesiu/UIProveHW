@@ -2,23 +2,19 @@ package isti.cnr.sse.rest.data;
 
 
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 
 
 //To be considered by the JavaServer Faces As Managed Bean
 // & Make the converter Eligible for use @ManagedProperty
-@ManagedBean
-@RequestScoped
+//@ManagedBean
+//@RequestScoped
 //@FacesConverter
-public class DittaConverter implements Converter{
+public class ModelloMFConverter implements Converter{
 	
-	@ManagedProperty(value="#{factory}")
+	//@ManagedProperty(value="#{dittaDataSource}")
 	private Factory ds;
 
 	public Factory getDs() {
@@ -31,7 +27,7 @@ public class DittaConverter implements Converter{
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,String value) {
-		for(Ditta p : ds.getList()){
+		for(Ditta p : Init.ini()){
 			if(p.getNomeDitta().equals(value)){
 				return p;
 			}

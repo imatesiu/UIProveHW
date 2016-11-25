@@ -18,6 +18,7 @@ import org.primefaces.event.SelectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.Factory;
+import isti.cnr.sse.rest.data.ModelloMF;
 
 import javax.faces.bean.ViewScoped;
 
@@ -30,6 +31,7 @@ public class CreaProve {
 	private String modelloMF;
 	private String numeroRapportoProva;
 	private Date date;
+	private Ditta ditta;
 
 
 	@ManagedProperty("#{proveService}")
@@ -43,7 +45,7 @@ public class CreaProve {
 
 	private List<Ditta> ditte;
 	
-	
+	@ManagedProperty(value="#{factory}")
 	private Factory ds;
 
 
@@ -77,8 +79,8 @@ public class CreaProve {
 	}
 	
 	public void action(SelectEvent  event){
-	 String g = (String)	event.getObject();
-	 nomeDitta = g;
+		ditta = (Ditta)	event.getObject();
+	
 	}
 
 
@@ -123,7 +125,11 @@ public class CreaProve {
 		this.selected = selectedProve;
 	}
 
-	public List<String> completeModelloMF(String query) {
+	public List<ModelloMF> completeModelloMF(String query) {
+		return ditta.queryByName(query);
+	}
+	
+	public List<String> completeModelloMF2(String query) {
 		
 		List<String> allThemes =  Factory.getNomeModello(ditte, getNomeDitta());;
 		List<String> filteredThemes = new ArrayList<String>();
