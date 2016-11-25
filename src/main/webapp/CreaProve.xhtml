@@ -26,7 +26,13 @@
  
     <h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
-        <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" completeMethod="#{creaProve.completeDitta}" />
+        <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" converter="#{dittaConverter}"  dropdown="true" completeMethod="#{creaProve.completeDitta}" >
+         
+       
+           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="msgs"/>
+            
+          
+         </p:autoComplete>
  
   <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
         <p:autoComplete id="acmodello" value="#{creaProve.modelloMF}" completeMethod="#{creaProve.completeModelloMF}" />

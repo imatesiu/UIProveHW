@@ -10,9 +10,11 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.event.DragDropEvent;
+import org.primefaces.event.SelectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.Factory;
@@ -40,12 +42,17 @@ public class CreaProve {
 	public Prova selected;
 
 	private List<Ditta> ditte;
+	
+	
+	private Factory ds;
+
 
 	@PostConstruct
 	public void init() {
 		prove = service.createProve();
 		droppedProve = new ArrayList<Prova>();
-		ditte = Init.ini();
+		//ditte = Init.ini();
+		ds = new Factory();
 	}
 
 
@@ -68,6 +75,12 @@ public class CreaProve {
 		droppedProve.add(p);
 		prove.remove(p);
 	}
+	
+	public void action(SelectEvent  event){
+	 String g = (String)	event.getObject();
+	 nomeDitta = g;
+	}
+
 
 	public void setService(ProveService service) {
 		this.service = service;
@@ -76,6 +89,20 @@ public class CreaProve {
 	public List<Prova> getProve() {
 		return prove;
 	}
+
+	
+	
+	public Factory getDs() {
+		return ds;
+	}
+
+
+
+	public void setDs(Factory ds) {
+		this.ds = ds;
+	}
+
+
 
 	public List<Prova> getDroppedProve() {
 		return droppedProve;
@@ -110,8 +137,12 @@ public class CreaProve {
 
 		return filteredThemes;
 	}
+	
+	public List<Ditta> completeDitta(String query) {
+		return ds.queryByName(query);
+	}
 
-	public List<String> completeDitta(String query) {
+	public List<String> completeDitta2(String query) {
 		List<String> allThemes = Factory.getNomeDitta(ditte);
 		List<String> filteredThemes = new ArrayList<String>();
 
