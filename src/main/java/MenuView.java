@@ -20,7 +20,7 @@ import javax.faces.bean.ViewScoped;
 @SessionScoped
 public class MenuView {
 	
-	private String pageName = "InsertMisuratoreFiscale";
+	private String pageName = "center";
 	
 	
 	
@@ -58,5 +58,17 @@ public class MenuView {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
+	
+	public void navigateCenter(ActionEvent actionEvent) {
+		setPageName("center");
+	}
+	
+	public String getNavigateCenter() {
+		setPageName("center");
+		return pageName;
+	}
 
+	public void setNavigateCenter(String n) {
+		setPageName("center");
+	}
 }

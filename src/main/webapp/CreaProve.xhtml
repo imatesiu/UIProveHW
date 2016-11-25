@@ -68,7 +68,7 @@
                
               
                  <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close" update=":ProveForm" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-close" immediate="true" update=":ProveForm" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
                         <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selected}" />
                     </p:commandButton>
                 </p:column>
@@ -84,18 +84,21 @@
     <br/>
     <br/>
    
-    <p:growl id="messages" />
+   
  
-    <p:splitButton value="Save" actionListener="#{creaProve.save}" update="messages" icon="ui-icon-disk">
-        <p:menuitem value="Close" actionListener="#{creaProve.close}" ajax="false" icon="ui-icon-close" />
+  
+       
+    <p:splitButton value="Save" actionListener="#{creaProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
-        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
-        
+        <p:menuitem value="Reset" actionListener="#{creaProve.reset}" immediate="true" ajax="false" icon="ui-icon-close" />
     </p:splitButton>
     
     
     
 </h:form>
-    
+    <br/>
+    <br/><br/>
+    <br/><br/>
+    <br/>
 </h:body>
 </html>

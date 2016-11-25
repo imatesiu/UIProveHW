@@ -67,9 +67,13 @@ public class InsertMF {
 		addMessage("Data saved"+numeroRapportoProva);
 	}
 
-	public void close(ActionEvent actionEvent) {
-		addMessage("Data updated");
-	}
+	 public void reset(ActionEvent actionEvent) {
+		 	init();
+	    	nomeDitta = new String();
+	    	nomeDispositivo = new String();
+	    	numeroRapportoProva = new String();
+	        addMessage("Data reset");
+	 }
 
 	public void addMessage(String summary) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);

@@ -46,8 +46,11 @@ public class InsertDitta {
         addMessage("Data saved ditta");
     }
      
-    public void close(ActionEvent actionEvent) {
-        addMessage("Data updated");
+    public void reset(ActionEvent actionEvent) {
+    	nomeDitta = new String();
+    	indirizzo = new String();
+    	pIVA  = new String();
+        addMessage("Data reset");
     }
 
     public void addMessage(String summary) {

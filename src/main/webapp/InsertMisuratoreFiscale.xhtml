@@ -40,10 +40,8 @@
     <p:growl id="messages" />
  
     <p:splitButton value="Save" actionListener="#{insertMF.save}" update="messages" icon="ui-icon-disk"  >
-        <p:menuitem value="Close" actionListener="#{insertMF.close}" ajax="false" icon="ui-icon-close" />
-        <p:separator />
-        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
-        
+       <p:separator />
+        <p:menuitem value="Reset" actionListener="#{insertMF.reset}" immediate="true" ajax="false" icon="ui-icon-close" />
     </p:splitButton>
     
     

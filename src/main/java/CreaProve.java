@@ -23,7 +23,7 @@ public class CreaProve {
 	private String nomeDitta;
 	private String modelloMF;
 	private String numeroRapportoProva;
-    private Date date;
+	private Date date;
 
 
 	@ManagedProperty("#{proveService}")
@@ -41,8 +41,8 @@ public class CreaProve {
 		droppedProve = new ArrayList<Prova>();
 	}
 
-	
-	
+
+
 	public Date getDate() {
 		return date;
 	}
@@ -79,7 +79,7 @@ public class CreaProve {
 
 	}
 
-    public Prova getSelected() {
+	public Prova getSelected() {
 		return selected;
 	}
 
@@ -142,8 +142,12 @@ public class CreaProve {
 		addMessage("Data saved"+numeroRapportoProva);
 	}
 
-	public void close(ActionEvent actionEvent) {
-		addMessage("Data updated");
+	public void reset(ActionEvent actionEvent) {
+		init();
+		nomeDitta = new String();
+		modelloMF = new String();
+		numeroRapportoProva = new String();
+		addMessage("Data reset");
 	}
 
 	public void addMessage(String summary) {
