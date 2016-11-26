@@ -6,6 +6,25 @@
     xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
+
+<ui:define name="head">
+        <style type="text/css">
+            .image-ring .ui-ring-item {
+                border:0 none;
+            }
+            .image-ring .ui-ring-item img {
+				width: 100%;
+			}
+            
+            .ui-ring button {
+                font-size: 1em !important;
+            }
+            
+            .value {
+                font-weight: bold;
+            }
+        </style>
+    </ui:define>
 <h:head>
     <title>Crea Prove</title>
 </h:head>
@@ -19,10 +38,12 @@
  <p:growl id="msgs" showDetail="true" />
  
    
-   
+   <p:ring id="custom" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
+                <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
+            </p:ring>
  
   
-       
+       <p:separator />
     <p:splitButton value="Save" actionListener="#{selectProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
         <p:menuitem value="Reset" actionListener="#{selectProve.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
