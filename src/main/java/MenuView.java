@@ -20,7 +20,7 @@ import javax.faces.bean.ViewScoped;
 @SessionScoped
 public class MenuView {
 	
-	private String pageName = "center";
+	private String pageName = "center.xhtml";
 	
 	
 	
@@ -33,27 +33,27 @@ public class MenuView {
 	}
 
 	public void newDitta(ActionEvent actionEvent) {
-		setPageName("InsertDitta");
+		setPageName("InsertDitta.xhtml");
 	//	addMessage("Data saved");
 	}
 
 	public void newModello(ActionEvent actionEvent) {
-		setPageName("InsertMisuratoreFiscale");
+		setPageName("InsertMisuratoreFiscale.xhtml");
 	//	addMessage("Data saved");
 	}
 	
 	public void newProve(ActionEvent actionEvent) {
-		setPageName("CreaProve");
+		setPageName("CreaProve.xhtml");
 	//	addMessage("Data saved");
 	}
 	
 	public void updateProva(ActionEvent actionEvent) {
-		setPageName("selectProve");
-		addMessage("Data ");
+		setPageName("selectProve.xhtml");
+		//addMessage("Data ");
 	}
 	
 	public void viewProva(ActionEvent actionEvent) {
-		setPageName("viewProva");
+		setPageName("viewProva.xhtml");
 		addMessage("Data ");
 	}
 	
@@ -66,15 +66,15 @@ public class MenuView {
 	}
 	
 	public void navigateCenter(ActionEvent actionEvent) {
-		setPageName("center");
+		setPageName("center.xhtml");
 	}
 	
 	public String getNavigateCenter() {
-		setPageName("center");
+		setPageName("center.xhtml");
 		return pageName;
 	}
 
 	public void setNavigateCenter(String n) {
-		setPageName("center");
+		setPageName("center.xhtml");
 	}
 }

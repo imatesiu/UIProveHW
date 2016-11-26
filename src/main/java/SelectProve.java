@@ -37,13 +37,14 @@ public class SelectProve {
 	@ManagedProperty(value="#{factory}")
 	private Factory ds;
 
-	@ManagedProperty(value="#{prove}")
+	//@ManagedProperty(value="#{prove}")
 	private List<Prova> prove;
 
 	@PostConstruct
 	public void init() {
 		
 		ds = new Factory();
+		prove = new ArrayList<>();
 	}
 
 	public String getNomeDitta() {
@@ -132,7 +133,7 @@ public class SelectProve {
 		nomeDitta = new String();
 		modelloMF = new String();
 		ditta = new Ditta();
-		
+		prove = new ArrayList<>();
 		numeroRapportoProva  = new String();
 
 		addMessage("Data reset");

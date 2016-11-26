@@ -51,7 +51,7 @@ function stop() {
         
   </h:panelGrid>
  
-    <p:dataTable id="selectedTable" var="allegato" value="#{viewProva.allegati}" >
+    <p:dataTable id="selectedTable" var="allegato" value="#{viewProva.allegati}" rendered="#{viewProva.allegati != null}">
                 <p:column headerText="NomeAlleato">
                     <h:outputText value="#{allegato.name}" />
                 </p:column>
