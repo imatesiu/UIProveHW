@@ -9,6 +9,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.ModelloMF;
+import isti.cnr.sse.rest.data.pojo.TipoProve;
 
 public class Init {
 	
@@ -48,8 +49,12 @@ public class Init {
 		misuratoriFiscali.add(mf);
 		a.setMisuratoriFiscali(misuratoriFiscali );
 		e.add(a);
-		
-		
+		Prova pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+		mf.getProve().add(pp);
+		pp = new Prova(TipoProve.Termiche.toString(), "", 
+				TipoProve.Termiche, true);
+		mf.getProve().add(pp);
 		
 		Ditta b = new Ditta("SHS", "Roma", "1213");
 		misuratoriFiscali = new ArrayList<>();
@@ -58,12 +63,19 @@ public class Init {
 		b.setMisuratoriFiscali(misuratoriFiscali );
 		e.add(b);
 		
+		pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+		mf.getProve().add(pp);
+		
 		Ditta c = new Ditta("HP", "Pisa", "121");
 		misuratoriFiscali = new ArrayList<>();
 		mf = new ModelloMF("TIPO3","17E","HP");
 		misuratoriFiscali.add(mf);
 		c.setMisuratoriFiscali(misuratoriFiscali );
 		e.add(c);
+		pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+		mf.getProve().add(pp);
 		return e;
 	}
 	

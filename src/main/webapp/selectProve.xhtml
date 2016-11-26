@@ -33,7 +33,7 @@ itemLabel="#{ditta}"
         converter="#{dittaConverter}"  dropdown="true" completeMethod="#{selectProve.completeDitta}" >
          
        
-           <p:ajax event="itemSelect" listener="#{selectProve.action}" update="acmodello nprova multi" 
+           <p:ajax event="itemSelect" listener="#{selectProve.action}" update="acmodello nprova" 
            resetValues="true" />
              
          </p:autoComplete>
@@ -47,7 +47,7 @@ itemLabel="#{modelloMF}"
         converter="#{modelloMFConverter}"  dropdown="true" 
         
         >
-          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova" resetValues="true"/>
+          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova inputP" resetValues="true"/>
          
      
         </p:autoComplete>
@@ -55,13 +55,30 @@ itemLabel="#{modelloMF}"
   <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
         <p:inputText id="nprova" value="#{selectProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
        
-        <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
-        <p:calendar id="multi" value="#{selectProve.date}" pages="3" />
+     <!--   <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
+        <p:calendar id="multi" value="#{selectProve.date}" pages="3" />-->
        
        
         <p:outputLabel for="inputP" value="Select Prova:" />
-       <p:inputText id="inputP" value="#{selectProve.prova}" required="true" requiredMessage="Please enter..." />
+         <p:ring id="inputP" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
+   
+                <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
+                
+            </p:ring>
+   <!--     <p:inputText id="inputP" value="#{selectProve.prova}" required="true" requiredMessage="Please enter..." />
+        <p:autoComplete id="inputP" value="#{selectProve.provaMF}" 
+        completeMethod="#{selectProve.completeProveMF}" 
+         var="prova"
+itemValue="#{prova}"
+itemLabel="#{prova}"
+        converter="#{proveConverter}"  dropdown="true" 
         
+        >
+          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova" resetValues="true"/>
+         
+     
+        </p:autoComplete>
+         -->
     </h:panelGrid>
     </p:panel>
     <p:separator />
@@ -76,7 +93,7 @@ itemLabel="#{modelloMF}"
  
   
        
-    <p:splitButton value="Save" actionListener="#{selectProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
+    <p:splitButton value="Submit" actionListener="#{selectProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
         <p:menuitem value="Reset" actionListener="#{selectProve.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
          <p:resetInput target="panel" />

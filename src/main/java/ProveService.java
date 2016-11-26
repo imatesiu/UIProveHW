@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import isti.cnr.sse.rest.data.Prova;
 import isti.cnr.sse.rest.data.pojo.TipoProve;
 
 @ManagedBean(name = "proveService")

@@ -1,5 +1,8 @@
 package isti.cnr.sse.rest.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -21,6 +24,10 @@ public class ModelloMF {
 	@SerializedName("nomeDitta")
 	@Expose
 	private String nomeDitta;
+	
+	@SerializedName("ProveHWMisuratoreFiscale")
+    @Expose
+	private List<Prova> prove;
 
 	public ModelloMF(){
 		
@@ -30,6 +37,18 @@ public class ModelloMF {
 		this.nomeModello = nomeModello;
 		this.numeroRapportoProva = numeroRapportoProva;
 		this.nomeDitta = nomeDitta;
+	}
+	
+	
+	
+	public List<Prova> getProve() {
+		if(prove==null){
+			prove = new ArrayList<Prova>();
+		}
+		return prove;
+	}
+	public void setProve(List<Prova> prove) {
+		this.prove = prove;
 	}
 	public String getNomeModello() {
 		return nomeModello;

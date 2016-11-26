@@ -1,8 +1,14 @@
+package isti.cnr.sse.rest.data;
 
 import java.io.Serializable;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import isti.cnr.sse.rest.data.pojo.TipoProve;
 
+@ManagedBean
+@SessionScoped
 public class Prova implements Serializable {
     
     public String nomeProva;
@@ -62,8 +68,15 @@ public class Prova implements Serializable {
     public void setSelezionabile(boolean sold) {
         this.selezionabile = sold;
     }
+    
 
     @Override
+	public String toString() {
+		return nomeProva;
+	}
+
+
+	@Override
     public int hashCode() {
         int hash = 7;
         hash = 59 * hash + (this.nomeProva != null ? this.nomeProva.hashCode() : 0);

@@ -21,6 +21,7 @@ import org.primefaces.event.UnselectEvent;
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.Factory;
 import isti.cnr.sse.rest.data.ModelloMF;
+import isti.cnr.sse.rest.data.Prova;
 
 import javax.faces.bean.ViewScoped;
 
