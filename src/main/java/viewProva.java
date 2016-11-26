@@ -25,13 +25,13 @@ public class viewProva {
 	
 	private Prova prova;
 	private Esito esito;
-	private List<UploadedFile> allegati;
-	private UploadedFile selecteda;
+	private List<StreamedContent> allegati;
+	private StreamedContent selecteda;
 	
 
 	@PostConstruct
 	public void init() {
-		allegati = new ArrayList<UploadedFile>();
+		allegati = new ArrayList<StreamedContent>();
 	}
 	
 	public void action(ActionEvent actionEvent) {
@@ -39,11 +39,11 @@ public class viewProva {
 	}
 
 	
-	public UploadedFile getSelecteda() {
+	public StreamedContent getSelecteda() {
 		return selecteda;
 	}
 
-	public void setSelecteda(UploadedFile selecteda) {
+	public void setSelecteda(StreamedContent selecteda) {
 		this.selecteda = selecteda;
 	}
 
@@ -52,11 +52,11 @@ public class viewProva {
 	}
 
 	
-	public List<UploadedFile> getAllegati() {
+	public List<StreamedContent> getAllegati() {
 		return allegati;
 	}
 
-	public void setAllegati(List<UploadedFile> allegati) {
+	public void setAllegati(List<StreamedContent> allegati) {
 		this.allegati = allegati;
 	}
 
@@ -85,10 +85,10 @@ public class viewProva {
 		return Esito.getListEsiti();
 	}
 	
-	 public void handleFileUpload(FileUploadEvent event) {
-		 	File f = new File(event.getFile().getFileName());
-
-		 	allegati.add(event.getFile());
+	 public void handleFileUpload(FileUploadEvent event) throws IOException {
+		 
+		 	allegati.add(new DefaultStreamedContent(event.getFile().getInputstream(),
+		 			event.getFile().getContentType(),event.getFile().getFileName()));
 	        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 	        FacesContext.getCurrentInstance().addMessage(null, message);
 	}
@@ -99,6 +99,6 @@ public class viewProva {
 		}
 	 
 	 public StreamedContent  getDownload() {
-		 return new DefaultStreamedContent(new ByteArrayInputStream(selecteda.getContents()));
+		 return selecteda;
 	 }
 }
