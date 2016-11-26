@@ -7,24 +7,6 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
-<ui:define name="head">
-        <style type="text/css">
-            .image-ring .ui-ring-item {
-                border:0 none;
-            }
-            .image-ring .ui-ring-item img {
-				width: 100%;
-			}
-            
-            .ui-ring button {
-                font-size: 1em !important;
-            }
-            
-            .value {
-                font-weight: bold;
-            }
-        </style>
-    </ui:define>
 <h:head>
     <title>Crea Prove</title>
 </h:head>
@@ -36,15 +18,28 @@
     <h:form id="viewProveForm">
 
  <p:growl id="msgs" showDetail="true" />
+ <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
  
+ <p:outputLabel value="Nome Misuratore Fiscale:"/>
+<p:outputLabel value="#{viewProva.prova.mf.nomeModello}"/>
+ <p:outputLabel value="Nome Prova:"/>
+ <p:outputLabel value="#{viewProva.prova.nomeProva}"/>
+   <p:outputLabel value="Numero Rapporto Prova:"/>
+   <p:outputLabel value="#{viewProva.prova.mf.numeroRapportoProva}"/>
    
-  
+   
+   
+    <h:outputText value="Esito: " />
+        <p:selectOneButton value="#{viewProva.esito}" >
+           <f:selectItems value="#{viewProva.optionEsiti}" />
+        </p:selectOneButton>
+  </h:panelGrid>
  
   
        <p:separator />
-    <p:splitButton value="Save" actionListener="#{selectProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
+    <p:splitButton value="Save" actionListener="#{viewProva.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
-        <p:menuitem value="Reset" actionListener="#{selectProve.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
+        <p:menuitem value="Reset" actionListener="#{viewProva.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
          <p:resetInput target="panel" />
         </p:menuitem>
     </p:splitButton>

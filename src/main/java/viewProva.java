@@ -1,7 +1,11 @@
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import isti.cnr.sse.rest.data.Esito;
 import isti.cnr.sse.rest.data.Prova;
 
 @ManagedBean
@@ -9,6 +13,13 @@ import isti.cnr.sse.rest.data.Prova;
 public class viewProva {
 	
 	private Prova prova;
+	private Esito esito;
+	
+
+	/*@PostConstruct
+	public void init() {
+		esito = prova.getStato();
+	}*/
 	
 	public void action(ActionEvent actionEvent) {
 		
@@ -22,6 +33,24 @@ public class viewProva {
 		this.prova = prova;
 	}
 	
+	
+	
+	public Esito getEsito() {
+		return esito;
+	}
 
+	public void setEsito(Esito esito) {
+		this.esito = esito;
+	}
+
+	public void optionEsito(ActionEvent actionEvent) {
+		
+	}
+	
+
+	public List<Esito> getOptionEsiti(){
+		esito = prova.getStato();
+		return Esito.getListEsiti();
+	}
 	
 }

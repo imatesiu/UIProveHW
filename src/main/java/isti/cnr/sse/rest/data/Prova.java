@@ -15,18 +15,20 @@ public class Prova implements Serializable {
     public String descrizioneProva;
     public TipoProve tp;
     public Esito stato;
+    public ModelloMF mf;
 
     public boolean selezionabile;
 
     public Prova() {}
     
         
-    public Prova(String nome, String desc, TipoProve tp, boolean sold) {
+    public Prova(String nome, String desc, TipoProve tp, boolean sold, ModelloMF mf) {
         this.nomeProva = nome;
         this.descrizioneProva = desc;
         this.selezionabile = sold;
         this.tp  = tp; 
         this.stato = Esito.Incorso;
+        this.mf = mf;
     }
 
    
@@ -34,7 +36,17 @@ public class Prova implements Serializable {
     
     
 
-    public Esito getStato() {
+    public ModelloMF getMf() {
+		return mf;
+	}
+
+
+	public void setMf(ModelloMF mf) {
+		this.mf = mf;
+	}
+
+
+	public Esito getStato() {
 		return stato;
 	}
 

@@ -50,10 +50,10 @@ public class Init {
 		a.setMisuratoriFiscali(misuratoriFiscali );
 		e.add(a);
 		Prova pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
-				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true,mf);
 		mf.getProve().add(pp);
 		pp = new Prova(TipoProve.Termiche.toString(), "", 
-				TipoProve.Termiche, true);
+				TipoProve.Termiche, true,mf);
 		mf.getProve().add(pp);
 		
 		Ditta b = new Ditta("SHS", "Roma", "1213");
@@ -64,7 +64,7 @@ public class Init {
 		e.add(b);
 		
 		pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
-				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true,mf);
 		mf.getProve().add(pp);
 		
 		Ditta c = new Ditta("HP", "Pisa", "121");
@@ -74,7 +74,7 @@ public class Init {
 		c.setMisuratoriFiscali(misuratoriFiscali );
 		e.add(c);
 		pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
-				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true);
+				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true,mf);
 		mf.getProve().add(pp);
 		return e;
 	}
