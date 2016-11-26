@@ -229,7 +229,10 @@ public class CreaProve {
 		init();
 		nomeDitta = new String();
 		modelloMF = new String();
-		numeroRapportoProva = new String();
+		ditta = null;
+		date  = new Date();
+		numeroRapportoProva  = new String();
+		
 		addMessage("Data reset");
 	}
 
