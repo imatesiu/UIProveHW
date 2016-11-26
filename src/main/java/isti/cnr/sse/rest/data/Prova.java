@@ -14,6 +14,7 @@ public class Prova implements Serializable {
     public String nomeProva;
     public String descrizioneProva;
     public TipoProve tp;
+    public Esito stato;
 
     public boolean selezionabile;
 
@@ -25,6 +26,7 @@ public class Prova implements Serializable {
         this.descrizioneProva = desc;
         this.selezionabile = sold;
         this.tp  = tp; 
+        this.stato = Esito.Incorso;
     }
 
    
@@ -32,7 +34,17 @@ public class Prova implements Serializable {
     
     
 
-    public TipoProve getTp() {
+    public Esito getStato() {
+		return stato;
+	}
+
+
+	public void setStato(Esito state) {
+		this.stato = state;
+	}
+
+
+	public TipoProve getTp() {
 		return tp;
 	}
 

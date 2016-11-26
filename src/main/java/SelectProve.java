@@ -99,6 +99,7 @@ public class SelectProve {
 	public void action(SelectEvent  event){
 		modelloMF = "";
 		numeroRapportoProva = "";
+		prove = null;
 		ditta = (Ditta)	event.getObject();
 	}
 
