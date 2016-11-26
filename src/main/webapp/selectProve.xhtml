@@ -116,14 +116,20 @@ itemLabel="#{prova}"
                 <p:column headerText="Descrizione">
                     <h:outputText value="#{prove.descrizioneProva}" />
                 </p:column>
- 
+  				<p:column headerText="Stato">
+                    <h:outputText value="#{prove.stato}" />
+                </p:column>
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search" >  <!--  oncomplete="PF('ProveDialog').show()"--> 
-                    
+                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewProva}" update=":contentPanel">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                    <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />
                     </p:commandButton>
                 </p:column>
-              
+            <!--   <p:column style="width:32px">
+                 <p:commandButton icon="ui-icon-close" immediate="true">   oncomplete="PF('ProveDialog').show()" 
+                    
+                    </p:commandButton>
+                </p:column> --> 
             </p:dataTable>
  
     </p:panel>

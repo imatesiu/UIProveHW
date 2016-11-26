@@ -48,6 +48,12 @@ public class MenuView {
 	}
 	
 	public void updateProva(ActionEvent actionEvent) {
+		setPageName("selectProve");
+		addMessage("Data ");
+	}
+	
+	public void viewProva(ActionEvent actionEvent) {
+		setPageName("viewProva");
 		addMessage("Data ");
 	}
 	
