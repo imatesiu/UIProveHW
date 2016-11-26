@@ -29,12 +29,13 @@
         <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" 
          var="ditta"
 itemValue="#{ditta}"
-itemLabel="#{ditta.nomeDitta}"
+itemLabel="#{ditta}"
         converter="#{dittaConverter}"  dropdown="true" completeMethod="#{creaProve.completeDitta}" >
          
        
-           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova" resetValues="true"/>
-            
+           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova" 
+           resetValues="true" />
+             
          </p:autoComplete>
  
   <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
@@ -42,7 +43,7 @@ itemLabel="#{ditta.nomeDitta}"
         completeMethod="#{creaProve.completeModelloMF}" 
          var="modelloMF"
 itemValue="#{modelloMF}"
-itemLabel="#{modelloMF.nomeModello}"
+itemLabel="#{modelloMF}"
         converter="#{modelloMFConverter}"  dropdown="true" 
         
         >

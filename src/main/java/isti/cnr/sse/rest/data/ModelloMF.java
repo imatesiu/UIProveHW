@@ -49,6 +49,10 @@ public class ModelloMF {
 	public void setNomeDitta(String nomeDitta) {
 		this.nomeDitta = nomeDitta;
 	}
+	@Override
+	public String toString() {
+		return  nomeModello;
+	}
 	
 	
 	

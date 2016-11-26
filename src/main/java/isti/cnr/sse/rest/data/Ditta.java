@@ -148,6 +148,14 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 	}
 
 
+	
+
+	@Override
+	public String toString() {
+		return  nomeDitta;
+	}
+
+
 
 	public List<ModelloMF> queryByName(String query) {
 		List<ModelloMF> queried = new ArrayList<ModelloMF>();

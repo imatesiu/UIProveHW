@@ -16,6 +16,7 @@ import javax.faces.model.SelectItem;
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.DragDropEvent;
 import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.Factory;
@@ -91,9 +92,16 @@ public class CreaProve {
 	
 	public void action(SelectEvent  event){
 	//	reset();
+		
+		RequestContext rc = RequestContext.getCurrentInstance();
+	//	List<Ditta> r = new ArrayList<>();
+	  //rc.execute("$(' PF('acmodello').val('')')");
+		modelloMF = "";
+		numeroRapportoProva = "";
 		ditta = (Ditta)	event.getObject();
-		System.out.println("");
 	}
+	
+	
 	
 	public void actionMF(SelectEvent  event){
 		ModelloMF ModelloMF = (ModelloMF)	event.getObject();
