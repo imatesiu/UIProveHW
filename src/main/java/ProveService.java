@@ -47,20 +47,20 @@ public class ProveService {
     public List<Prova> createProve() {
         List<Prova> list = new ArrayList<Prova>();
 		
-	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale ,  getRandomSoldState()));
-	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState()));
+	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState(),null));
 
-	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState()));
-	    list.add( new Prova ("Disturbi Elettromagnetici", "desc",TipoProve.DisturbiElettromagnetici ,  getRandomSoldState()));
+	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Disturbi Elettromagnetici", "desc",TipoProve.DisturbiElettromagnetici ,  getRandomSoldState(),null));
 
-	    list.add( new Prova ("Impermeabilità", "desc",TipoProve.Impermeabilita ,  getRandomSoldState()));
-	    list.add( new Prova ("Guasto e Malfunzionamento", "desc",TipoProve.Guastoemalfunzionamento ,  getRandomSoldState()));
+	    list.add( new Prova ("Impermeabilità", "desc",TipoProve.Impermeabilita ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Guasto e Malfunzionamento", "desc",TipoProve.Guastoemalfunzionamento ,  getRandomSoldState(),null));
 
 
-	    list.add( new Prova ("Termiche", "desc",TipoProve.Termiche ,  getRandomSoldState()));
-	    list.add( new Prova ("Vibrazione", "desc",TipoProve.Vibrazione ,  getRandomSoldState()));
+	    list.add( new Prova ("Termiche", "desc",TipoProve.Termiche ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Vibrazione", "desc",TipoProve.Vibrazione ,  getRandomSoldState(),null));
 	    
-	    list.add( new Prova ("Scariche Elettrostatiche", "desc",TipoProve.ScaricheElettrostatiche ,  getRandomSoldState()));
+	    list.add( new Prova ("Scariche Elettrostatiche", "desc",TipoProve.ScaricheElettrostatiche ,  getRandomSoldState(),null));
         
         return list;
     }
