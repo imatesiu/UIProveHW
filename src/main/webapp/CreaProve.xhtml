@@ -46,7 +46,8 @@ itemLabel="#{modelloMF.nomeModello}"
         converter="#{modelloMFConverter}"  dropdown="true" 
         
         >
-        
+          <p:ajax event="itemSelect" listener="#{creaProve.actionMF}"  update="nprova" resetValues="true"/>
+         
      
         </p:autoComplete>
  

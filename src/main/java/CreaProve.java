@@ -90,8 +90,14 @@ public class CreaProve {
 	
 	
 	public void action(SelectEvent  event){
+	//	reset();
 		ditta = (Ditta)	event.getObject();
-		reset();
+		System.out.println("");
+	}
+	
+	public void actionMF(SelectEvent  event){
+		ModelloMF ModelloMF = (ModelloMF)	event.getObject();
+		numeroRapportoProva = ModelloMF.getNumeroRapportoProva();
 	
 	}
 

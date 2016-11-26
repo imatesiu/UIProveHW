@@ -45,6 +45,7 @@ public class ModelloMFConverter implements Converter{
 	public String getAsString(FacesContext context, UIComponent component,Object value) {
 		if(value instanceof ModelloMF){
 			ModelloMF player = (ModelloMF)value;
+			ditta.getMisuratoriFiscali().add(player);
 			return player.getNomeModello();
 		}
 		return "";

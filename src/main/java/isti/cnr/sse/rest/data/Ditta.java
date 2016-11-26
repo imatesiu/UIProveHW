@@ -71,7 +71,10 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 
 
 	public List<ModelloMF> getMisuratoriFiscali() {
-		return misuratoriFiscali;
+		if(misuratoriFiscali!=null){
+			return misuratoriFiscali;
+		}
+		return misuratoriFiscali =  new ArrayList<ModelloMF>();
 	}
 
 
