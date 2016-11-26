@@ -11,10 +11,16 @@
     <title>Crea Prove</title>
 </h:head>
 
-
-
 <h:body>
-
+<script type="text/javascript">
+function start() {
+    PF('statusDialog').show();
+}
+ 
+function stop() {
+    PF('statusDialog').hide();
+}
+</script>
     <h:form id="viewProveForm">
 
  <p:growl id="msgs" showDetail="true" />
@@ -55,6 +61,13 @@
                <p:column style="width:32px">
                  <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update=":contentPanel" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
               <!--       <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />--> 
+                    </p:commandButton>
+                </p:column>
+                
+                <p:column style="width:32px">
+                 <p:commandButton icon="ui-icon-arrowthick-1-s" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+          				    <f:setPropertyActionListener target="#{viewProva.selecteda}" value="#{allegato}"/>
+          				   <p:fileDownload value="#{viewProva.download}" />
                     </p:commandButton>
                 </p:column>
              <p:column style="width:32px">

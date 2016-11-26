@@ -1,4 +1,6 @@
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import isti.cnr.sse.rest.data.Esito;
@@ -82,6 +86,8 @@ public class viewProva {
 	}
 	
 	 public void handleFileUpload(FileUploadEvent event) {
+		 	File f = new File(event.getFile().getFileName());
+
 		 	allegati.add(event.getFile());
 	        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 	        FacesContext.getCurrentInstance().addMessage(null, message);
@@ -91,4 +97,8 @@ public class viewProva {
 			allegati.remove(selecteda);
 			
 		}
+	 
+	 public StreamedContent  getDownload() {
+		 return new DefaultStreamedContent(new ByteArrayInputStream(selecteda.getContents()));
+	 }
 }
