@@ -2,6 +2,11 @@ package isti.cnr.sse.rest.data;
 
 
 
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -9,26 +14,27 @@ import javax.faces.convert.Converter;
 
 //To be considered by the JavaServer Faces As Managed Bean
 // & Make the converter Eligible for use @ManagedProperty
-//@ManagedBean
-//@RequestScoped
+@ManagedBean
+@RequestScoped
 //@FacesConverter
 public class ModelloMFConverter implements Converter{
 	
-	//@ManagedProperty(value="#{dittaDataSource}")
-	private Factory ds;
+	  @ManagedProperty(value="#{ditta}")
+		private Ditta ditta;
 
-	public Factory getDs() {
-		return ds;
+
+	public Ditta getDitta() {
+		return ditta;
 	}
 
-	public void setDs(Factory ds) {
-		this.ds = ds;
+	public void setDitta(Ditta ditta) {
+		this.ditta = ditta;
 	}
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,String value) {
-		for(Ditta p : Init.ini()){
-			if(p.getNomeDitta().equals(value)){
+		for(ModelloMF p : ditta.getMisuratoriFiscali()){
+			if(p.getNomeModello().equals(value)){
 				return p;
 			}
 		}
@@ -37,9 +43,9 @@ public class ModelloMFConverter implements Converter{
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component,Object value) {
-		if(value instanceof Ditta){
-			Ditta player = (Ditta)value;
-			return player.getNomeDitta();
+		if(value instanceof ModelloMF){
+			ModelloMF player = (ModelloMF)value;
+			return player.getNomeModello();
 		}
 		return "";
 	}

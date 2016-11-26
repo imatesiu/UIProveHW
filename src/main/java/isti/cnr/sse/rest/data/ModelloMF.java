@@ -1,8 +1,12 @@
 package isti.cnr.sse.rest.data;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+@ManagedBean
+@SessionScoped
 public class ModelloMF {
 	
 	@SerializedName("nomeModello")

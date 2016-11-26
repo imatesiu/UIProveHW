@@ -13,6 +13,7 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.SelectItem;
 
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.DragDropEvent;
 import org.primefaces.event.SelectEvent;
 
@@ -31,6 +32,8 @@ public class CreaProve {
 	private String modelloMF;
 	private String numeroRapportoProva;
 	private Date date;
+	
+	@ManagedProperty(value="#{ditta}")
 	private Ditta ditta;
 
 
@@ -47,6 +50,9 @@ public class CreaProve {
 	
 	@ManagedProperty(value="#{factory}")
 	private Factory ds;
+	
+	
+	
 
 
 	@PostConstruct
@@ -78,8 +84,14 @@ public class CreaProve {
 		prove.remove(p);
 	}
 	
+	 public void reset() {
+	        RequestContext.getCurrentInstance().reset("ProveForm:panel");
+	    }
+	
+	
 	public void action(SelectEvent  event){
 		ditta = (Ditta)	event.getObject();
+		reset();
 	
 	}
 
@@ -102,6 +114,18 @@ public class CreaProve {
 
 	public void setDs(Factory ds) {
 		this.ds = ds;
+	}
+
+
+
+	public Ditta getDitta() {
+		return ditta;
+	}
+
+
+
+	public void setDitta(Ditta ditta) {
+		this.ditta = ditta;
 	}
 
 
