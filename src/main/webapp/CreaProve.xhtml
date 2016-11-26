@@ -33,7 +33,7 @@ itemLabel="#{ditta}"
         converter="#{dittaConverter}"  dropdown="true" completeMethod="#{creaProve.completeDitta}" >
          
        
-           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova" 
+           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova multi" 
            resetValues="true" />
              
          </p:autoComplete>
