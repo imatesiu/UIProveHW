@@ -27,7 +27,6 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-@SessionScoped
 public class CreaProve {
 
 	private String nomeDitta;

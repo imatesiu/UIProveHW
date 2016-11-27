@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import isti.cnr.sse.rest.data.pojo.TipoProve;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class Prova implements Serializable {
     
     public String nomeProva;
