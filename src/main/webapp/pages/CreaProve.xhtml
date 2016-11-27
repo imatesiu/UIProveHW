@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+ <h:body>     
+  <ui:composition    template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+
+
+
+<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedProve = ui.draggable;
+ 
+        droppedProve.fadeOut('fast');
+    }
+</script>
+    <h:form id="ProveForm">
+
+ <p:growl id="msgs" showDetail="true" />
+ <p:panel id="panel" header="Form" style="margin-bottom:10px;">
+    <h:panelGrid columns="2" cellpadding="5">
+        <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
+        <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" 
+         var="ditta"
+itemValue="#{ditta}"
+itemLabel="#{ditta}"
+        converter="#{dittaConverter}"  dropdown="true" completeMethod="#{creaProve.completeDitta}" >
+         
+       
+           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova multi" 
+           resetValues="true" />
+             
+         </p:autoComplete>
+ 
+  <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
+        <p:autoComplete id="acmodello" value="#{creaProve.modelloMF}" 
+        completeMethod="#{creaProve.completeModelloMF}" 
+         var="modelloMF"
+itemValue="#{modelloMF}"
+itemLabel="#{modelloMF}"
+        converter="#{modelloMFConverter}"  dropdown="true" 
+        
+        >
+          <p:ajax event="itemSelect" listener="#{creaProve.actionMF}"  update="nprova" resetValues="true"/>
+         
+     
+        </p:autoComplete>
+ 
+  <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
+        <p:inputText id="nprova" value="#{creaProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
+       
+        <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
+        <p:calendar id="multi" value="#{creaProve.date}" pages="3" />
+       
+    </h:panelGrid>
+    </p:panel>
+    <p:separator />
+    
+    <p:fieldset id="availableProvesField" legend="AvailableProves">
+        <p:dataGrid id="availableProves" var="prova" value="#{creaProve.prove}" columns="3">
+            <p:panel id="pnl" header="#{prova.nomeProva}" style="text-align:center">
+                <h:panelGrid columns="1" style="width:100%">
+                    <p:graphicImage name="/images/prove/#{prova.tp}.png" />
+                </h:panelGrid>
+            </p:panel>
+ 
+            <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+        </p:dataGrid>
+    </p:fieldset>
+ 
+    <p:fieldset id="selectedProves" legend="Selected Proves" style="margin-top:20px">
+        <p:outputPanel id="dropArea">
+            <h:outputText value="!!!Drop here!!!" rendered="#{empty creaProve.droppedProve}" style="font-size:24px;" />
+            <p:dataTable id="selectedProvesTable" var="prove" value="#{creaProve.droppedProve}" rendered="#{not empty creaProve.droppedProve}">
+                <p:column headerText="Nome Prova">
+                    <h:outputText value="#{prove.nomeProva}" />
+                </p:column>
+ 
+                <p:column headerText="Descrizione">
+                    <h:outputText value="#{prove.descrizioneProva}" />
+                </p:column>
+ 
+               
+              
+                 <p:column style="width:32px">
+                 <p:commandButton icon="ui-icon-close" immediate="true" update="" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                        <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selected}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </p:outputPanel>
+    </p:fieldset>
+ 
+    <p:droppable for="selectedProves" tolerance="touch" activeStyleClass="ui-state-highlight" 
+    datasource="availableProves" onDrop="handleDrop">
+        <p:ajax listener="#{creaProve.onProveDrop}" update="dropArea availableProves" />
+    </p:droppable>
+    
+    <br/>
+    <br/>
+   
+   
+ 
+  
+       
+    <p:splitButton value="Save" actionListener="#{creaProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
+        <p:separator />
+        <p:menuitem value="Reset" actionListener="#{creaProve.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
+         <p:resetInput target="panel" />
+        </p:menuitem>
+    </p:splitButton>
+    
+    
+    
+</h:form>
+    <br/>
+    <br/><br/>
+    <br/><br/>
+    <br/>
+
+</ui:define>
+
+</ui:composition>
+</h:body>
+</html>

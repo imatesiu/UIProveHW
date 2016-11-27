@@ -6,12 +6,11 @@
     xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-
-<h:head>
-    <title>Crea Prove</title>
-</h:head>
-
 <h:body>
+<ui:composition    template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
 <script type="text/javascript">
 function start() {
     PF('statusDialog').show();
@@ -59,7 +58,7 @@ function stop() {
               
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update=":contentPanel" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update="" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
               <!--       <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />--> 
                     </p:commandButton>
                 </p:column>
@@ -92,5 +91,8 @@ function stop() {
     <br/><br/>
     <br/><br/>
     <br/>
+    </ui:define>
+
+</ui:composition>
 </h:body>
 </html>

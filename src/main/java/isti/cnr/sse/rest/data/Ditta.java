@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 @Generated("org.jsonschema2pojo")
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class Ditta  implements Serializable,Comparable<Ditta> {
 	
 	private static final long serialVersionUID = -7134057343859286897L;
@@ -26,20 +26,20 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 	
 	@SerializedName("nomeDitta")
 	@Expose
-	private String nomeDitta;
+	private String nomeDitta = new String();
 	
 	@SerializedName("Indirizzo")
 	@Expose
-	private String indirizzo;
+	private String indirizzo = new String();;
 	
 	
 	@SerializedName("PIVA_CF")
 	@Expose
-	private String piva;
+	private String piva = new String();
 	
 	@SerializedName("ModelloMisuratoreFiscale")
     @Expose
-	private List<ModelloMF> misuratoriFiscali;
+	private List<ModelloMF> misuratoriFiscali = new  ArrayList<>();
 	
 	public Ditta (){
 		

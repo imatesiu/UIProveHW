@@ -8,7 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class Factory {
 
 	private List<Ditta> list;

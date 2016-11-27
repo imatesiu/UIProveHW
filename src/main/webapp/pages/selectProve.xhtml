@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://java.sun.com/jsf/html"
      xmlns:f="http://java.sun.com/jsf/core"
     xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
 
 <h:head>
     <title>update Prove</title>
@@ -121,7 +125,7 @@ itemLabel="#{prova}"
                 </p:column>
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewProva}" update=":contentPanel">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-search" url="/pages/viewProva.xhtml" update="">  <!--  oncomplete="PF('ProveDialog').show()"--> 
                     <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />
                     
                     </p:commandButton>
@@ -150,4 +154,5 @@ itemLabel="#{prova}"
     <br/><br/>
     <br/>
 </h:body>
-</html>
+</ui:define>
+</ui:composition>
