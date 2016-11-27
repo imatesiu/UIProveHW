@@ -7,6 +7,9 @@ import javax.faces.model.SelectItem;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.pojo.TipoProve;
@@ -48,6 +51,9 @@ public class Init {
 		ModelloMF mf = new ModelloMF("TIPO1","14E","Custom");
 		misuratoriFiscali.add(mf);
 		a.setMisuratoriFiscali(misuratoriFiscali );
+		
+		
+		
 		e.add(a);
 		Prova pp = new Prova(TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale.toString(), "", 
 				TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale, true,mf);
@@ -55,6 +61,9 @@ public class Init {
 		pp = new Prova(TipoProve.Termiche.toString(), "", 
 				TipoProve.Termiche, true,mf);
 		mf.getProve().add(pp);
+		
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		System.out.println(gson.toJson(a));
 		
 		Ditta b = new Ditta("SHS", "Roma", "1213");
 		misuratoriFiscali = new ArrayList<>();
