@@ -6,27 +6,21 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.model.SelectItem;
 
 import org.primefaces.context.RequestContext;
 import org.primefaces.event.DragDropEvent;
 import org.primefaces.event.SelectEvent;
-import org.primefaces.event.UnselectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.Factory;
 import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 
-import javax.faces.bean.ViewScoped;
-
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class CreaProve {
 
 	private String nomeDitta;

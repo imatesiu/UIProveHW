@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.model.DefaultStreamedContent;
@@ -20,6 +19,10 @@ import isti.cnr.sse.rest.data.pojo.TipoProve;
 @SessionScoped
 public class Prova implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String nomeProva = new String();
 	public String descrizioneProva = new String();;
 	public TipoProve tp;

@@ -4,7 +4,6 @@ import java.util.Map;
 
 import javax.faces.model.SelectItem;
 
-import org.apache.commons.lang3.tuple.Pair;
 
 import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.ModelloMF;

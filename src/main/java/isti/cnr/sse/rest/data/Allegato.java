@@ -11,6 +11,12 @@ import java.io.Serializable;
 public class Allegato implements Serializable, Comparable<Allegato> {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8351933523945481995L;
+
+
+	/**
      * 
      * (Required)
      * 
