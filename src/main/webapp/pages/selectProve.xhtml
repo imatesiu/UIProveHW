@@ -82,8 +82,9 @@ itemLabel="#{modelloMF}"
        
         <p:outputLabel for="inputP" value="Select Prova:" />
          <p:ring id="inputP" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
-   <p:commandLink>
+   <p:commandLink action="#{selectProve.go}">
                 <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
+                  <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prova}" />
                 </p:commandLink>
             </p:ring>
    <!--     <p:inputText id="inputP" value="#{selectProve.prova}" required="true" requiredMessage="Please enter..." />
