@@ -68,6 +68,7 @@ public class viewProva {
 
 	public void setProva(Prova prova) {
 		this.prova = prova;
+		allegati = prova.getDownladable();
 		
 	}
 	
