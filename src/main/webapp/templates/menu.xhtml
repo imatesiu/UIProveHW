@@ -1,0 +1,43 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<h:form id="mainform">
+
+		<p:outputPanel id="menuPanel" layout="block">
+			
+				
+				<p:menu toggleable="true" ajax="false">
+        <p:submenu label="Crea">
+            <p:menuitem value="Ditta" url="/pages/InsertDitta.xhtml" icon="ui-icon-disk" />
+            <p:menuitem value="Modello" url="/pages/InsertMisuratoreFiscale.xhtml" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Prove" url="/pages/CreaProve.xhtml" icon="ui-icon-arrowrefresh-1-w"/>
+
+        </p:submenu>
+         <p:submenu label="Modifica">
+          <p:menuitem value="Prove" url="/pages/selectProve.xhtml"  icon="ui-icon-arrowrefresh-1-w">
+           <!--  <p:ajax  execute="@this"  listener="#{selectProve.reset}" update=":contentPanel" resetValues="true"/>
+           <p:resetInput target="contentPanel" />
+           <p:ajax update="contentPanel" resetValues="true" />-->
+          </p:menuitem>
+       
+         </p:submenu>
+         <p:submenu label="Statistiche">
+          <p:menuitem value="Prove"  icon="ui-icon-arrowrefresh-1-w"/>
+     <!--      <p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+		<p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+       --> 
+         </p:submenu>
+       
+    </p:menu>
+		</p:outputPanel>
+
+	</h:form>
+</ui:composition>
+
+

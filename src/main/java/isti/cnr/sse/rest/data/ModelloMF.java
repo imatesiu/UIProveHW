@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -14,20 +15,20 @@ public class ModelloMF {
 	
 	@SerializedName("nomeModello")
     @Expose
-	private String nomeModello;
+	private String nomeModello = new String();
 	
 	@SerializedName("numeroRapportoProva")
     @Expose
-	private String numeroRapportoProva;
-	
+	private String numeroRapportoProva = new String();
+	 
 	
 	@SerializedName("nomeDitta")
 	@Expose
-	private String nomeDitta;
+	private String nomeDitta = new String();
 	
 	@SerializedName("ProveHWMisuratoreFiscale")
     @Expose
-	private List<Prova> prove;
+	private List<Prova> prove = new ArrayList<>();
 
 	public ModelloMF(){
 		

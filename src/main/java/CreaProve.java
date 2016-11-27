@@ -26,7 +26,6 @@ import isti.cnr.sse.rest.data.Prova;
 import javax.faces.bean.ViewScoped;
 
 @ManagedBean
-@ViewScoped
 @SessionScoped
 public class CreaProve {
 
@@ -36,19 +35,19 @@ public class CreaProve {
 	private Date date;
 	
 	@ManagedProperty(value="#{ditta}")
-	private Ditta ditta;
+	private Ditta ditta = new Ditta();
 
 
 	@ManagedProperty("#{proveService}")
 	private ProveService service;
 
-	private List<Prova> prove;
+	private List<Prova> prove = new ArrayList<>();
 
-	private List<Prova> droppedProve;
+	private List<Prova> droppedProve = new ArrayList<>();
 
-	public Prova selected;
+	public Prova selected = new Prova();
 
-	private List<Ditta> ditte;
+	private List<Ditta> ditte= new ArrayList<>();
 	
 	@ManagedProperty(value="#{factory}")
 	private Factory ds;

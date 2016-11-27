@@ -1,5 +1,3 @@
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,26 +5,26 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import org.primefaces.model.UploadedFile;
 
 import isti.cnr.sse.rest.data.Esito;
 import isti.cnr.sse.rest.data.Prova;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class viewProva {
 	
-	private Prova prova;
+	private Prova prova = new Prova();
 	private Esito esito;
 	private List<StreamedContent> allegati;
 	private StreamedContent selecteda;
+	private String note;
 	
 
 	@PostConstruct
@@ -39,6 +37,14 @@ public class viewProva {
 	}
 
 	
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
 	public StreamedContent getSelecteda() {
 		return selecteda;
 	}
@@ -62,6 +68,7 @@ public class viewProva {
 
 	public void setProva(Prova prova) {
 		this.prova = prova;
+		
 	}
 	
 	

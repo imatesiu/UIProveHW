@@ -8,6 +8,7 @@ import javax.annotation.Generated;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -25,20 +26,20 @@ public class Ditta  implements Serializable,Comparable<Ditta> {
 	
 	@SerializedName("nomeDitta")
 	@Expose
-	private String nomeDitta;
+	private String nomeDitta = new String();
 	
 	@SerializedName("Indirizzo")
 	@Expose
-	private String indirizzo;
+	private String indirizzo = new String();;
 	
 	
 	@SerializedName("PIVA_CF")
 	@Expose
-	private String piva;
+	private String piva = new String();
 	
 	@SerializedName("ModelloMisuratoreFiscale")
     @Expose
-	private List<ModelloMF> misuratoriFiscali;
+	private List<ModelloMF> misuratoriFiscali = new  ArrayList<>();
 	
 	public Ditta (){
 		

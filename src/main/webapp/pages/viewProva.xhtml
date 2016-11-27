@@ -6,12 +6,11 @@
     xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
-
-<h:head>
-    <title>Crea Prove</title>
-</h:head>
-
 <h:body>
+<ui:composition    template="/templates/template.xhtml">
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
 <script type="text/javascript">
 function start() {
     PF('statusDialog').show();
@@ -21,9 +20,9 @@ function stop() {
     PF('statusDialog').hide();
 }
 </script>
-    <h:form id="viewProveForm">
+ 
 
- <p:growl id="msgs" showDetail="true" />
+ 
  <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
  
  <p:outputLabel value="Nome Misuratore Fiscale:"/>
@@ -41,7 +40,7 @@ function stop() {
         </p:selectOneButton>
         
         <h:outputText value="Insert Note: " />
-         <p:inputTextarea rows="6" cols="33" />
+         <p:inputTextarea id="textArea" value="#{viewProva.note}" rows="6" cols="33" />
         
         <h:outputText value="Insert Allegato: " />
          <p:fileUpload fileUploadListener="#{viewProva.handleFileUpload}" mode="advanced" dragDropSupport="true"
@@ -52,14 +51,18 @@ function stop() {
   </h:panelGrid>
  
     <p:dataTable id="selectedTable" var="allegato" value="#{viewProva.allegati}" rendered="#{viewProva.allegati != null}">
-                <p:column headerText="NomeAlleato">
+                <p:column headerText="Nome Alleato">
                     <h:outputText value="#{allegato.name}" />
                 </p:column>
- 
+ <p:column headerText="Content Type">
+                    <h:outputText value="#{allegato.contentType}" />
+                </p:column>
+            
               
+             
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update=":contentPanel" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update="" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
               <!--       <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />--> 
                     </p:commandButton>
                 </p:column>
@@ -71,7 +74,7 @@ function stop() {
                     </p:commandButton>
                 </p:column>
              <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close" immediate="true"  update="viewProveForm" action="#{viewProva.remallegato}">  
+                 <p:commandButton icon="ui-icon-close" immediate="true"  update="@form" action="#{viewProva.remallegato}">  
                     <f:setPropertyActionListener target="#{viewProva.selecteda}" value="#{allegato}"/>
                     </p:commandButton>
                 </p:column> 
@@ -86,11 +89,13 @@ function stop() {
     </p:splitButton>
     
     
-    
-</h:form>
+
     <br/>
     <br/><br/>
     <br/><br/>
     <br/>
+    </ui:define>
+
+</ui:composition>
 </h:body>
 </html>

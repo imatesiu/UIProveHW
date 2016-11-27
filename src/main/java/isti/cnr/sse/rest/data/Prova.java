@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import isti.cnr.sse.rest.data.pojo.TipoProve;
 
@@ -11,11 +12,11 @@ import isti.cnr.sse.rest.data.pojo.TipoProve;
 @SessionScoped
 public class Prova implements Serializable {
     
-    public String nomeProva;
-    public String descrizioneProva;
+    public String nomeProva = new String();
+    public String descrizioneProva = new String();;
     public TipoProve tp;
-    public Esito stato;
-    public ModelloMF mf;
+    public Esito stato = Esito.Incorso;
+    public ModelloMF mf = new ModelloMF();
 
     public boolean selezionabile;
 
