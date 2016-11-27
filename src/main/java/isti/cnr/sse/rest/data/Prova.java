@@ -15,7 +15,7 @@ public class Prova implements Serializable {
     public String nomeProva = new String();
     public String descrizioneProva = new String();;
     public TipoProve tp;
-    public Esito stato;
+    public Esito stato = Esito.Incorso;
     public ModelloMF mf = new ModelloMF();
 
     public boolean selezionabile;

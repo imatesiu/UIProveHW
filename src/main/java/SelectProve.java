@@ -144,8 +144,8 @@ public class SelectProve {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 	
-	public String getGo() {
-		return "//pages//viewProva.xhtml";
+	public String go() {
+		return "/pages/viewProva.xhtml";
 	}
 
 
