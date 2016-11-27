@@ -7,10 +7,10 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
  
  <h:body>     
-  <ui:composition    template="/templates/template.xhtml">
+  <ui:composition    template="/templates/template.xhtml" id="creap">
 	<ui:define name="metadata">
 	</ui:define>
-	<ui:define name="content">
+	<ui:define name="content" >
 
 
 
@@ -21,9 +21,9 @@
         droppedProve.fadeOut('fast');
     }
 </script>
-    <h:form id="ProveForm">
+  
 
- <p:growl id="msgs" showDetail="true" />
+ <p:growl id="msgss" showDetail="true" />
  <p:panel id="panel" header="Form" style="margin-bottom:10px;">
     <h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
@@ -90,8 +90,9 @@ itemLabel="#{modelloMF}"
                
               
                  <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close" immediate="true" update="" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-close" immediate="true" update="@form" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
                         <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selected}" />
+                        
                     </p:commandButton>
                 </p:column>
             </p:dataTable>
@@ -119,7 +120,7 @@ itemLabel="#{modelloMF}"
     
     
     
-</h:form>
+
     <br/>
     <br/><br/>
     <br/><br/>

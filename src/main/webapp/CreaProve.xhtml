@@ -89,7 +89,7 @@ itemLabel="#{modelloMF}"
                
               
                  <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close" immediate="true" update=":ProveForm" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-close" immediate="true" update="@form" action="#{creaProve.remprova}">  <!--  oncomplete="PF('ProveDialog').show()"--> 
                         <f:setPropertyActionListener value="#{prove}" target="#{creaProve.selected}" />
                     </p:commandButton>
                 </p:column>
