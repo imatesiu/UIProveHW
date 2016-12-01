@@ -242,7 +242,9 @@ public class CreaProve {
 	}
 
 
-	
+	public String go() {
+		return "/index.xhtml";
+	}
 
 
 }

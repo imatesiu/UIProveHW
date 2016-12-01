@@ -59,7 +59,7 @@ public class SendRest {
 		try{
 			Gson g = new Gson();
 			String res = post(g.toJson(d),"/ditta/");
-			if(res=="OK"){
+			if(res.equals("OK")){
 				return "Data saved";
 			}
 		}catch (Exception e) {

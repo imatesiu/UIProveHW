@@ -90,7 +90,7 @@
  
   
        
-    <p:splitButton value="Save" actionListener="#{creaProve.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
+    <p:splitButton value="Save" actionListener="#{creaProve.save}" action="#{creaProve.go}" style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
         <p:menuitem value="Reset" actionListener="#{creaProve.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
          <p:resetInput target="panel" />

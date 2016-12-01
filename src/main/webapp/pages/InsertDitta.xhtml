@@ -36,7 +36,7 @@
    
     <p:growl id="messages" />
  
-    <p:splitButton value="Save" actionListener="#{insertDitta.save}" style="width:200px;"
+    <p:splitButton value="Save" actionListener="#{insertDitta.save}" action="#{insertDitta.go}" style="width:200px;"
     update="messages" icon="ui-icon-disk">
     <p:separator />
         <p:menuitem value="Reset" actionListener="#{insertDitta.reset}" immediate="true" ajax="false" icon="ui-icon-close" />

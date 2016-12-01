@@ -62,4 +62,8 @@ public class InsertDitta {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+    
+	public String go() {
+		return "/index.xhtml";
+	}
 }
