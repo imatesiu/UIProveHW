@@ -8,6 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 
+import isti.cnr.sse.rest.data.SendRest;
+
 @ManagedBean
 @RequestScoped
 public class InsertMF {
@@ -21,8 +23,8 @@ public class InsertMF {
 	@PostConstruct
 	public void init() {
 		
-		//TODO read list DITTa from rest
-		ListDitta = Init.init();
+		SendRest s = new SendRest();
+		ListDitta = s.getSelectedItemDitte();
 		
 	}
 
