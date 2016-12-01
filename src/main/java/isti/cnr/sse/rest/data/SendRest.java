@@ -20,7 +20,7 @@ public class SendRest {
 
 
 	public List<Ditta> getDitte(String type){
-		
+
 		String result = sendGet("/ditte/"+type);
 		Gson g = new Gson();
 		Ditte d  = new Ditte();
@@ -53,27 +53,41 @@ public class SendRest {
 		//context.getExternalContext().getRequestMap().put("rest", id);
 
 	}
-	
-	
-	public String saveNewDitta(Ditta d){		
-		Gson g = new Gson();
-		String res = post(g.toJson(d),"/ditta/");;
-		return res;
+
+
+	public String saveNewDitta(Ditta d){
+		try{
+			Gson g = new Gson();
+			String res = post(g.toJson(d),"/ditta/");
+			if(res=="OK"){
+				return "Data saved";
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "Problem data unsaved";
 	}
-	
+
 	public String saveNewModello(ModelloMF MF){		
-		Gson g = new Gson();
-		String res = post(g.toJson(MF),"/modello/");;
-		return res;
+		try{
+			Gson g = new Gson();
+			String res = post(g.toJson(MF),"/modello/");
+			if(res=="OK"){
+				return "Data saved";
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "Problem data unsaved";
 	}
-	
-	
+
+
 	public void  Stringgson(String str){
 		Gson gson = new Gson();
-	//	System.out.println(gson.toJson(LMF);
-		
-		
-		
+		//	System.out.println(gson.toJson(LMF);
+
+
+
 	}
 
 	public List<SelectItem> getSelectedItemDitte() {

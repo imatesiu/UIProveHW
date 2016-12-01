@@ -19,6 +19,7 @@ import isti.cnr.sse.rest.data.Ditta;
 import isti.cnr.sse.rest.data.FactoryLocal;
 import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
+import isti.cnr.sse.rest.data.SendRest;
 
 @ManagedBean
 @SessionScoped
@@ -217,7 +218,11 @@ public class CreaProve {
 
 
 	public void save(ActionEvent actionEvent) {
-		addMessage("Data saved"+numeroRapportoProva);
+		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta());
+		MF.setProve(droppedProve);
+		SendRest s = new SendRest();
+		String resutl = s.saveNewModello(MF);
+		addMessage(resutl);
 	}
 
 	public void reset(ActionEvent actionEvent) {

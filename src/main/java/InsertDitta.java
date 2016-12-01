@@ -4,6 +4,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import isti.cnr.sse.rest.data.Ditta;
+import isti.cnr.sse.rest.data.SendRest;
+
 
 @ManagedBean
 @RequestScoped
@@ -42,7 +45,10 @@ public class InsertDitta {
 	}
 
 	public void save(ActionEvent actionEvent) {
-        addMessage("Data saved ditta");
+		SendRest send = new SendRest();
+		Ditta d = new Ditta(getNomeDitta(), getIndirizzo(), getpIVA());
+		String result = send.saveNewDitta(d);
+        addMessage(result);
     }
      
     public void reset(ActionEvent actionEvent) {
