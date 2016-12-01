@@ -15,7 +15,7 @@ import org.primefaces.event.DragDropEvent;
 import org.primefaces.event.SelectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
-import isti.cnr.sse.rest.data.Factory;
+import isti.cnr.sse.rest.data.FactoryLocal;
 import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 
@@ -44,7 +44,7 @@ public class CreaProve {
 	private List<Ditta> ditte= new ArrayList<>();
 	
 	@ManagedProperty(value="#{factory}")
-	private Factory ds;
+	private FactoryLocal ds;
 	
 	
 	
@@ -55,7 +55,7 @@ public class CreaProve {
 		prove = service.createProve();
 		droppedProve = new ArrayList<Prova>();
 		//ditte = Init.ini();
-		ds = new Factory();
+		ds = new FactoryLocal();
 	}
 
 
@@ -114,13 +114,13 @@ public class CreaProve {
 
 	
 	
-	public Factory getDs() {
+	public FactoryLocal getDs() {
 		return ds;
 	}
 
 
 
-	public void setDs(Factory ds) {
+	public void setDs(FactoryLocal ds) {
 		this.ds = ds;
 	}
 
@@ -163,7 +163,7 @@ public class CreaProve {
 	
 	public List<String> completeModelloMF2(String query) {
 		
-		List<String> allThemes =  Factory.getNomeModello(ditte, getNomeDitta());;
+		List<String> allThemes =  FactoryLocal.getNomeModello(ditte, getNomeDitta());;
 		List<String> filteredThemes = new ArrayList<String>();
 
 		for (int i = 0; i < allThemes.size(); i++) {
@@ -181,7 +181,7 @@ public class CreaProve {
 	}
 
 	public List<String> completeDitta2(String query) {
-		List<String> allThemes = Factory.getNomeDitta(ditte);
+		List<String> allThemes = FactoryLocal.getNomeDitta(ditte);
 		List<String> filteredThemes = new ArrayList<String>();
 
 		for (int i = 0; i < allThemes.size(); i++) {

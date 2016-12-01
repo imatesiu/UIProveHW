@@ -85,6 +85,9 @@ itemLabel="#{modelloMF}"
    <p:commandLink action="#{selectProve.go}">
                 <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
                   <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prova}" />
+                    <f:setPropertyActionListener target="#{viewProva.numeroRapportoProva}" value="#{selectProve.numeroRapportoProva}" />
+                    <f:setPropertyActionListener target="#{viewProva.nomeModello}" value="#{selectProve.modelloMF}" />
+                  
                 </p:commandLink>
             </p:ring>
    <!--     <p:inputText id="inputP" value="#{selectProve.prova}" required="true" requiredMessage="Please enter..." />
@@ -128,7 +131,9 @@ itemLabel="#{prova}"
                <p:column style="width:32px">
                  <p:commandButton icon="ui-icon-search"  action="#{selectProve.go}" >  <!--  oncomplete="PF('ProveDialog').show()"--> 
                     <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />
-                    
+                    <f:setPropertyActionListener target="#{viewProva.numeroRapportoProva}" value="#{selectProve.numeroRapportoProva}" />
+                    <f:setPropertyActionListener target="#{viewProva.nomeModello}" value="#{selectProve.modelloMF}" />
+                  
                     </p:commandButton>
                 </p:column>
             <!--   <p:column style="width:32px">

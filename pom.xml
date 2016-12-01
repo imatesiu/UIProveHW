@@ -87,10 +87,15 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.0</version>
 		</dependency>
-<dependency>
+		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
 			<version>3.0.0-milestone1</version>
+		</dependency>
+		<dependency>
+			<groupId>cnr.isti.sse.rest.data</groupId>
+			<artifactId>dataTestHW</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -110,7 +115,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>${tomcat7-maven-plugin.version}</version>
 				<configuration>
-					<port>9090</port>
+					<port>8080</port>
 					<path>/</path>
 				</configuration>
 			</plugin>
@@ -120,7 +125,7 @@
 				<version>${jetty-maven-plugin.version}</version>
 				<configuration>
 					<httpConnector>
-						<port>9090</port>
+						<port>8080</port>
 					</httpConnector>
 					<webApp>
 						<contextPath>/</contextPath>

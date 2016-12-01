@@ -17,7 +17,7 @@ public class Init {
 		ModelloMF mf = new ModelloMF("TIPO1","14E","Custom");
 		misuratoriFiscali.add(mf);
 		a.setMisuratoriFiscali(misuratoriFiscali );
-		e.add(a.getSelectItem());
+		e.add(getSelectItem(a));
 		
 		
 		
@@ -26,18 +26,23 @@ public class Init {
 		mf = new ModelloMF("TIPO2","15E","SHS");
 		misuratoriFiscali.add(mf);
 		b.setMisuratoriFiscali(misuratoriFiscali );
-		e.add(b.getSelectItem());
+		e.add(getSelectItem(b));
 		
 		Ditta c = new Ditta("HP", "Pisa", "121");
 		misuratoriFiscali = new ArrayList<>();
 		mf = new ModelloMF("TIPO3","17E","HP");
 		misuratoriFiscali.add(mf);
 		c.setMisuratoriFiscali(misuratoriFiscali );
-		e.add(c.getSelectItem());
+		e.add(getSelectItem(c));
 		return e;
 	}
 	
 	
+	private static SelectItem getSelectItem(Ditta a) {
+		return new SelectItem(a.getNomeDitta(),a.getNomeDitta());
+	}
+
+
 	public static List<Ditta> ini(){
 		List<Ditta> e = new ArrayList<Ditta>();
 		Ditta a = new Ditta("Custom", "Parma", "11");

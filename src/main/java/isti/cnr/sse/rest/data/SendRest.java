@@ -1,5 +1,7 @@
 package isti.cnr.sse.rest.data;
 
+import java.util.List;
+
 import javax.faces.context.FacesContext;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -13,10 +15,18 @@ import com.google.gson.Gson;
 public class SendRest {
 
 
+	public List<Ditta> getDitte(){
+		
+		String result = sendGet("/ditte/test");
+		Gson g = new Gson();
+		Ditte d  = new Ditte();
+		d = g.fromJson(result, Ditte.class);
+		return d.getListaDitte();
+	}
 
 	public String sendGet(String path){
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:8080").path(path);
+		WebTarget target = client.target("http://localhost:9090").path("/cnr/sse/testhw"+path);
 		Response allID =  target.request().get();
 		String res = allID.readEntity(String.class);
 		return res;
@@ -26,7 +36,7 @@ public class SendRest {
 	public String post(String content, String path){
 
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:8080").path(path);
+		WebTarget target = client.target("http://localhost:9090").path("/cnr/sse/testhw/ditte/test"+path);
 
 		Entity<String> entity = Entity.entity(content,MediaType.APPLICATION_JSON);
 

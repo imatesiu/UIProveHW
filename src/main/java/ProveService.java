@@ -8,7 +8,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
 import isti.cnr.sse.rest.data.Prova;
-import isti.cnr.sse.rest.data.pojo.TipoProve;
+import isti.cnr.sse.rest.data.TipoProve;
 
 @ManagedBean(name = "proveService")
 @ApplicationScoped

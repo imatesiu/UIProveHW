@@ -12,7 +12,7 @@ import javax.faces.event.ActionEvent;
 import org.primefaces.event.SelectEvent;
 
 import isti.cnr.sse.rest.data.Ditta;
-import isti.cnr.sse.rest.data.Factory;
+import isti.cnr.sse.rest.data.FactoryLocal;
 import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 
@@ -31,8 +31,8 @@ public class SelectProve {
 	//@ManagedProperty(value="#{modelloMF}")
 	private ModelloMF modello;
 
-	@ManagedProperty(value="#{factory}")
-	private Factory ds;
+	@ManagedProperty(value="#{factoryLocal}")
+	private FactoryLocal ds;
 
 	//@ManagedProperty(value="#{prove}")
 	private List<Prova> prove;
@@ -40,7 +40,7 @@ public class SelectProve {
 	@PostConstruct
 	public void init() {
 		
-		ds = new Factory();
+		ds = new FactoryLocal();
 		prove = new ArrayList<>();
 	}
 
@@ -77,11 +77,11 @@ public class SelectProve {
 	}
 
 
-	public Factory getDs() {
+	public FactoryLocal getDs() {
 		return ds;
 	}
 
-	public void setDs(Factory ds) {
+	public void setDs(FactoryLocal ds) {
 		this.ds = ds;
 	}
 

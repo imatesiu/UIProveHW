@@ -17,14 +17,14 @@ import javax.faces.convert.Converter;
 //@FacesConverter
 public class DittaConverter implements Converter{
 	
-	@ManagedProperty(value="#{factory}")
-	private Factory ds;
+	@ManagedProperty(value="#{factoryLocal}")
+	private FactoryLocal ds;
 
-	public Factory getDs() {
+	public FactoryLocal getDs() {
 		return ds;
 	}
 
-	public void setDs(Factory ds) {
+	public void setDs(FactoryLocal ds) {
 		this.ds = ds;
 	}
 

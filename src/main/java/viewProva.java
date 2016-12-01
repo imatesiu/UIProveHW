@@ -1,3 +1,5 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
+import isti.cnr.sse.rest.data.Allegato;
 import isti.cnr.sse.rest.data.Esito;
 import isti.cnr.sse.rest.data.Prova;
 
@@ -26,6 +29,9 @@ public class viewProva {
 	private StreamedContent selecteda;
 	private String note;
 	
+	public String nomeModello;
+	public String numeroRapportoProva;
+	
 
 	@PostConstruct
 	public void init() {
@@ -37,6 +43,22 @@ public class viewProva {
 	}
 
 	
+	public String getNomeModello() {
+		return nomeModello;
+	}
+
+	public void setNomeModello(String nomeModello) {
+		this.nomeModello = nomeModello;
+	}
+
+	public String getNumeroRapportoProva() {
+		return numeroRapportoProva;
+	}
+
+	public void setNumeroRapportoProva(String numeroRapportoProva) {
+		this.numeroRapportoProva = numeroRapportoProva;
+	}
+
 	public String getNote() {
 		return note;
 	}
@@ -68,13 +90,31 @@ public class viewProva {
 
 	public void setProva(Prova prova) {
 		this.prova = prova;
-		allegati = prova.getDownladable();
+		allegati = getDownladable(prova);
 		
 	}
 	
 	
 	
 	
+	private List<StreamedContent> getDownladable(Prova prova) {
+		List<StreamedContent> l = new ArrayList<>();
+		for(Allegato a:prova.getListallegato()){
+			
+			String path = a.getUrl();
+			String contentType = FacesContext.getCurrentInstance().getExternalContext().getMimeType(path);
+			try {
+				l.add(new DefaultStreamedContent(new FileInputStream(path), contentType));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return l;
+		
+	}
+
 	public Esito getEsito() {
 		return esito;
 	}

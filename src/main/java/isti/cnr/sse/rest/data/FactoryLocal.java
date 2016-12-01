@@ -8,12 +8,13 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean
 @SessionScoped
-public class Factory {
+public class FactoryLocal {
 
 	private List<Ditta> list;
 
-	public Factory() {
-		list = Init.ini();
+	public FactoryLocal() {
+		SendRest s = new SendRest();
+		list = s.getDitte();
 	}
 
 	public static List<String> getNomeDitta(List<Ditta> d){
