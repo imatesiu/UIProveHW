@@ -37,11 +37,16 @@
   
     <p:growl id="messages" />
  
-    <p:splitButton value="Save" actionListener="#{insertMF.save}" update="messages" icon="ui-icon-disk"  >
+<!--    <p:splitButton value="Save" actionListener="#{insertMF.save}" update="messages" icon="ui-icon-disk"  >
        <p:separator />
         <p:menuitem value="Reset" actionListener="#{insertMF.reset}" immediate="true" ajax="false" icon="ui-icon-close" />
-    </p:splitButton>
-    
+    </p:splitButton> -->
+      <p:commandButton   action="#{insertMF.go}"  style="width:200px;" update="msgs" icon="ui-icon-disk" >  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                    <f:setPropertyActionListener target="#{creaProve.nomeDitta}" value="#{insertMF.nomeDitta}" />
+                    <f:setPropertyActionListener target="#{creaProve.modelloMF}" value="#{insertMF.nomeDispositivo}" />
+                    <f:setPropertyActionListener target="#{creaProve.numeroRapportoProva}" value="#{insertMF.numeroRapportoProva}" />
+                    
+                    </p:commandButton>
     
     
 </h:form>

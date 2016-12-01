@@ -27,34 +27,13 @@
  <p:panel id="panel" header="Form" style="margin-bottom:10px;">
     <h:panelGrid columns="2" cellpadding="5">
         <p:outputLabel value="Ditta Misuratore Fiscale:" for="acSimple" />
-        <p:autoComplete id="acSimple" value="#{creaProve.nomeDitta}" 
-         var="ditta"
-itemValue="#{ditta}"
-itemLabel="#{ditta}"
-        converter="#{dittaConverter}"  dropdown="true" completeMethod="#{creaProve.completeDitta}" >
-         
-       
-           <p:ajax event="itemSelect" listener="#{creaProve.action}" update="acmodello nprova multi" 
-           resetValues="true" />
-             
-         </p:autoComplete>
+       <p:outputLabel id="acSimple" value="#{creaProve.nomeDitta}"/>
  
   <p:outputLabel value="Modello Misuratore Fiscale:" for="acmodello" />
-        <p:autoComplete id="acmodello" value="#{creaProve.modelloMF}" 
-        completeMethod="#{creaProve.completeModelloMF}" 
-         var="modelloMF"
-itemValue="#{modelloMF}"
-itemLabel="#{modelloMF}"
-        converter="#{modelloMFConverter}"  dropdown="true" 
-        
-        >
-          <p:ajax event="itemSelect" listener="#{creaProve.actionMF}"  update="nprova" resetValues="true"/>
-         
-     
-        </p:autoComplete>
+         <p:outputLabel id="acmodello" value="#{creaProve.modelloMF}"/>
  
   <p:outputLabel value="Numero Rapporto Prova:" for="nprova" />
-        <p:inputText id="nprova" value="#{creaProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
+<p:outputLabel id="nprova" value="#{creaProve.numeroRapportoProva}"/>
        
         <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
         <p:calendar id="multi" value="#{creaProve.date}" pages="3" />
@@ -118,7 +97,7 @@ itemLabel="#{modelloMF}"
         </p:menuitem>
     </p:splitButton>
     
-    
+     
     
 
     <br/>

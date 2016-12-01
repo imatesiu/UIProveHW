@@ -11,10 +11,19 @@ import javax.faces.bean.SessionScoped;
 public class FactoryLocal {
 
 	private List<Ditta> list;
+	
 
-	public FactoryLocal() {
+	public FactoryLocal(){
+		send("allopen");
+	}
+
+	public FactoryLocal(String type) {
+		send(type);
+	}
+	
+	public void send(String type){
 		SendRest s = new SendRest();
-		list = s.getDitte();
+		list = s.getDitte(type);
 	}
 
 	public static List<String> getNomeDitta(List<Ditta> d){
@@ -65,7 +74,9 @@ public class FactoryLocal {
 	}
 
 	public List<Ditta> getList() {
-		// TODO Auto-generated method stub
+		if(list==null){
+			list = new ArrayList<>();
+		}
 		return list;
 	}
 

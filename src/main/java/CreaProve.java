@@ -6,7 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
@@ -20,7 +21,7 @@ import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CreaProve {
 
 	private String nomeDitta;
@@ -55,7 +56,7 @@ public class CreaProve {
 		prove = service.createProve();
 		droppedProve = new ArrayList<Prova>();
 		//ditte = Init.ini();
-		ds = new FactoryLocal();
+		//ds = new FactoryLocal("new");
 	}
 
 
@@ -236,6 +237,7 @@ public class CreaProve {
 	}
 
 
+	
 
 
 }

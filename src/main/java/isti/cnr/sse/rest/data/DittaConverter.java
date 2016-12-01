@@ -30,6 +30,7 @@ public class DittaConverter implements Converter{
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,String value) {
+		if(ds!=null)
 		for(Ditta p : ds.getList()){
 			if(p.getNomeDitta().equals(value)){
 				return p;

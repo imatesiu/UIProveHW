@@ -73,4 +73,8 @@ public class InsertMF {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
+	
+	public String go() {
+		return "/pages/CreaProve.xhtml";
+	}
 }

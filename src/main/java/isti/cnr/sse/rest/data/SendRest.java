@@ -15,9 +15,9 @@ import com.google.gson.Gson;
 public class SendRest {
 
 
-	public List<Ditta> getDitte(){
+	public List<Ditta> getDitte(String type){
 		
-		String result = sendGet("/ditte/test");
+		String result = sendGet("/ditte/"+type);
 		Gson g = new Gson();
 		Ditte d  = new Ditte();
 		d = g.fromJson(result, Ditte.class);

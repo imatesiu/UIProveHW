@@ -39,8 +39,8 @@ public class SelectProve {
 
 	@PostConstruct
 	public void init() {
-		
-		ds = new FactoryLocal();
+		if(ds==null)
+			ds = new FactoryLocal();
 		prove = new ArrayList<>();
 	}
 
@@ -86,7 +86,7 @@ public class SelectProve {
 	}
 
 	public List<Prova> getProve() {
-		
+
 		return prove;
 	}
 
@@ -104,29 +104,29 @@ public class SelectProve {
 	public List<ModelloMF> completeModelloMF(String query) {
 		return ditta.queryByName(query);
 	}
-	
-	
+
+
 	public List<Ditta> completeDitta(String query) {
 		return ds.queryByName(query);
 	}
 
 
 	public void actionMF(SelectEvent  event){
-		 modello = (ModelloMF)	event.getObject();
+		modello = (ModelloMF)	event.getObject();
 		numeroRapportoProva = modello.getNumeroRapportoProva();
 		prove = modello.getProve();
 	}
-	
-	
+
+
 
 	public void save(ActionEvent actionEvent) {
 		addMessage("Data saved"+numeroRapportoProva);
 	}
-	
-	
+
+
 
 	public void reset(ActionEvent actionEvent) {
-		
+
 		nomeDitta = new String();
 		modelloMF = new String();
 		ditta = new Ditta();
@@ -140,7 +140,7 @@ public class SelectProve {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-	
+
 	public String go() {
 		return "/pages/viewProva.xhtml";
 	}
