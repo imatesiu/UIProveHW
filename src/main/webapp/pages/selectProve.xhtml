@@ -68,7 +68,7 @@ itemLabel="#{modelloMF}"
         converter="#{modelloMFConverter}"  dropdown="true" 
         
         >
-          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova inputP selectedTable" resetValues="true"/>
+          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova inputP selectedTable " resetValues="true"/>
          
      
         </p:autoComplete>
@@ -77,9 +77,10 @@ itemLabel="#{modelloMF}"
         <p:inputText id="nprova" value="#{selectProve.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
        
      <!--   <p:outputLabel for="multi" value="Data Presuto Inizio Prove:" />
-        <p:calendar id="multi" value="#{selectProve.date}" pages="3" />-->
-       
-       
+        <p:calendar id="multi" value="#{selectProve.date}" pages="3" />
+         <h:outputText value="QR" />
+    <p:barcode id="qrr" value="14E" type="qr"/>-->
+      
         <p:outputLabel for="inputP" value="Select Prova:" />
          <p:ring id="inputP" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
    <p:commandLink action="#{selectProve.go}">

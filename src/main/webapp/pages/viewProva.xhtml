@@ -27,8 +27,18 @@ function stop() {
  
  <p:outputLabel value="Nome Misuratore Fiscale:"/>
 <p:outputLabel value="#{viewProva.nomeModello}"/>
+
+</h:panelGrid>
+ <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">
+
+
  <p:outputLabel value="Nome Prova:"/>
  <p:outputLabel value="#{viewProva.prova.nomeProva}"/>
+  <p:graphicImage name="/images/prove/#{viewProva.prova.tp}.png" stream="false" />
+ </h:panelGrid>
+ 
+  <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+ 
    <p:outputLabel value="Numero Rapporto Prova:"/>
    <p:outputLabel value="#{viewProva.numeroRapportoProva}"/>
    
