@@ -53,7 +53,7 @@ itemValue="#{ditta}"
 itemLabel="#{ditta}"
         converter="#{dittaConverter}"  dropdown="true" completeMethod="#{selectProve.completeDitta}" >
          
-       
+      
            <p:ajax event="itemSelect" listener="#{selectProve.action}" update="acmodello nprova selectedTable inputP" 
            resetValues="true" />
              

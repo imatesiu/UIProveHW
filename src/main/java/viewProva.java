@@ -1,6 +1,8 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,27 +24,27 @@ import isti.cnr.sse.rest.data.Prova;
 @ManagedBean
 @RequestScoped
 public class viewProva {
-	
+
 	private Prova prova = new Prova();
 	private Esito esito;
 	private List<StreamedContent> allegati;
 	private StreamedContent selecteda;
 	private String note;
-	
+
 	public String nomeModello;
 	public String numeroRapportoProva;
-	
+
 
 	@PostConstruct
 	public void init() {
 		allegati = new ArrayList<StreamedContent>();
 	}
-	
+
 	public void action(ActionEvent actionEvent) {
-		
+
 	}
 
-	
+
 	public String getNomeModello() {
 		return nomeModello;
 	}
@@ -79,7 +81,7 @@ public class viewProva {
 		return prova;
 	}
 
-	
+
 	public List<StreamedContent> getAllegati() {
 		return allegati;
 	}
@@ -91,28 +93,35 @@ public class viewProva {
 	public void setProva(Prova prova) {
 		this.prova = prova;
 		allegati = getDownladable(prova);
-		
+
 	}
-	
-	
-	
-	
+
+
+
+
 	private List<StreamedContent> getDownladable(Prova prova) {
 		List<StreamedContent> l = new ArrayList<>();
 		for(Allegato a:prova.getListallegato()){
-			
+
 			String path = a.getUrl();
 			String contentType = FacesContext.getCurrentInstance().getExternalContext().getMimeType(path);
 			try {
-				l.add(new DefaultStreamedContent(new FileInputStream(path), contentType));
-			} catch (FileNotFoundException e) {
+				if(!path.contains("http")){
+					l.add(new DefaultStreamedContent(new FileInputStream(path), contentType));
+				}else{
+					InputStream is = new URL(path).openStream();
+					DefaultStreamedContent d = new DefaultStreamedContent( is ,contentType);
+					d.setName(a.getNome());
+					l.add(d);
+				}
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
 		return l;
-		
+
 	}
 
 	public Esito getEsito() {
@@ -124,29 +133,29 @@ public class viewProva {
 	}
 
 	public void optionEsito(ActionEvent actionEvent) {
-		
+
 	}
-	
+
 
 	public List<Esito> getOptionEsiti(){
 		esito = prova.getStato();
 		return Esito.getListEsiti();
 	}
-	
-	 public void handleFileUpload(FileUploadEvent event) throws IOException {
-		 
-		 	allegati.add(new DefaultStreamedContent(event.getFile().getInputstream(),
-		 			event.getFile().getContentType(),event.getFile().getFileName()));
-	        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
-	        FacesContext.getCurrentInstance().addMessage(null, message);
+
+	public void handleFileUpload(FileUploadEvent event) throws IOException {
+
+		allegati.add(new DefaultStreamedContent(event.getFile().getInputstream(),
+				event.getFile().getContentType(),event.getFile().getFileName()));
+		FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
+		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-	 
-	 public void remallegato() {
-			allegati.remove(selecteda);
-			
-		}
-	 
-	 public StreamedContent  getDownload() {
-		 return selecteda;
-	 }
+
+	public void remallegato() {
+		allegati.remove(selecteda);
+
+	}
+
+	public StreamedContent  getDownload() {
+		return selecteda;
+	}
 }
