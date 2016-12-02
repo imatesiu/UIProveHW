@@ -5,7 +5,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
@@ -17,7 +17,7 @@ import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class SelectProve {
 
 	private String nomeDitta;
@@ -39,7 +39,7 @@ public class SelectProve {
 
 	@PostConstruct
 	public void init() {
-		if(ds==null)
+		//if(ds==null)
 			ds = new FactoryLocal();
 		prove = new ArrayList<>();
 	}

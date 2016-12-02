@@ -6,7 +6,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -89,7 +88,7 @@ public class CreaProve {
 	public void action(SelectEvent  event){
 	//	reset();
 		
-		RequestContext rc = RequestContext.getCurrentInstance();
+	//	RequestContext rc = RequestContext.getCurrentInstance();
 	//	List<Ditta> r = new ArrayList<>();
 	  //rc.execute("$(' PF('acmodello').val('')')");
 		modelloMF = "";

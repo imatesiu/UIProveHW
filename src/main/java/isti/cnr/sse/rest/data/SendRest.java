@@ -4,7 +4,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -82,13 +81,13 @@ public class SendRest {
 	}
 
 
-	public void  Stringgson(String str){
+	/*public void  Stringgson(String str){
 		Gson gson = new Gson();
 		//	System.out.println(gson.toJson(LMF);
 
 
 
-	}
+	}*/
 
 	public List<SelectItem> getSelectedItemDitte() {
 		String result = sendGet("/dittestring");
