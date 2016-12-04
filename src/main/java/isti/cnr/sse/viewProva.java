@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
@@ -107,6 +109,7 @@ public class viewProva {
 			String path = a.getUrl();
 			String contentType = FacesContext.getCurrentInstance().getExternalContext().getMimeType(path);
 			try {
+				if(path!=null)
 				if(!path.contains("http")){
 					l.add(new DefaultStreamedContent(new FileInputStream(path), contentType));
 				}else{
@@ -180,7 +183,7 @@ public class viewProva {
 						a.init(prova.getNumeroRapportoProva(), prova.getNomeModello() , prova.getNomeProva(), s.getName(),
 								s.getContentType());
 						FileInputStream fi = (FileInputStream) s.getStream();
-						byte imageData[] = new byte[(int)fi.available()];
+						byte imageData[] = new byte[(int)fi.getChannel().size()];
 
 						fi.read(imageData);
 						String data = Base64.encodeBase64URLSafeString(imageData);
@@ -199,6 +202,14 @@ public class viewProva {
 	public void addMessage(String summary) {
 		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
 		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+	
+	public String go() {
+		return "/index.xhtml";
+	}
+	
+	public String goview() {
+		return "/pages/viewProva.xhtml";
 	}
 
 }

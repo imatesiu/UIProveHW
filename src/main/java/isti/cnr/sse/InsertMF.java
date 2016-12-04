@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import java.util.List;
 
 import javax.annotation.PostConstruct;

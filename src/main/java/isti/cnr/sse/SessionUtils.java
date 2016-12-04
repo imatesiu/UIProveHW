@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

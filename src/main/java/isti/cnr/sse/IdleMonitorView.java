@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;

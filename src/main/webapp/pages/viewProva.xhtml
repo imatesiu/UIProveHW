@@ -55,7 +55,7 @@ function stop() {
         <h:outputText value="Insert Allegato: " />
          <p:fileUpload fileUploadListener="#{viewProva.handleFileUpload}" mode="advanced" dragDropSupport="true"
                  multiple="true"      auto="true"    update="msgs selectedTable" 
-                 sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png|doc?|txt|pdf)$/" />
+                 sizeLimit="1000000" allowTypes="/(\.|\/)(gif|jpe?g|png|doc?|txt|pdf)$/" />
  
         
   </h:panelGrid>
@@ -91,7 +91,7 @@ function stop() {
             </p:dataTable>
   
        <p:separator />
-    <p:splitButton value="Save" actionListener="#{viewProva.save}"  style="width:200px;" update="msgs" icon="ui-icon-disk">
+    <p:splitButton value="Save" actionListener="#{viewProva.save}" action="#{viewProva.go}" style="width:200px;" update="msgs" icon="ui-icon-disk">
         <p:separator />
         <p:menuitem value="Reset" actionListener="#{viewProva.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
          <p:resetInput target="panel" />

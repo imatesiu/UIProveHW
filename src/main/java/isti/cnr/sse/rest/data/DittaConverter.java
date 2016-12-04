@@ -9,34 +9,57 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
+import isti.cnr.sse.SelectProve;
+
+
+
 
 //To be considered by the JavaServer Faces As Managed Bean
 // & Make the converter Eligible for use @ManagedProperty
 @ManagedBean
-@RequestScoped
+//@RequestScoped
 //@FacesConverter
 public class DittaConverter implements Converter{
 	
-	@ManagedProperty(value="#{factoryLocal}")
-	private FactoryLocal ds;
-
-	public FactoryLocal getDs() {
-		return ds;
-	}
-
-	public void setDs(FactoryLocal ds) {
-		this.ds = ds;
-	}
+	
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent component,String value) {
-		if(ds!=null)
-		for(Ditta p : ds.getList()){
-			if(p.getNomeDitta().equals(value)){
-				return p;
-			}
-		}
-		return null;
+	public Object getAsObject(FacesContext fc, UIComponent component,String value) {
+		
+		
+		 if(value != null && value.trim().length() > 0) {
+		       
+		       FacesContext context = FacesContext.getCurrentInstance();
+		       
+	//	 SelectProve service2 = (SelectProve) context.getELContext().getELResolver().getValue(context.getELContext(), null,"selectProve");
+	       
+			 
+			
+		       FactoryLocal f2 = (FactoryLocal)  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("factoryLocal");
+			 
+				//SelectProve service = (SelectProve) fc.getExternalContext().getRequestMap().get("selectProve");
+		       SelectProve service = (SelectProve) fc.getApplication()
+			    .getVariableResolver().resolveVariable(fc, "selectProve");
+			 
+				 
+
+
+				
+	            	if(service!=null)
+	            		for(Ditta p : service.getDs().getList()){
+	            			if(p.getNomeDitta().equals(value)){
+	            				return p;
+	            			}
+	            		}
+	            		return null;
+	            
+	            
+		 }else {
+	            return null;
+	        }
+		
+		
+		
 	}
 
 	@Override

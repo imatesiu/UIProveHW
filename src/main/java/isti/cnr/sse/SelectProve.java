@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +42,11 @@ public class SelectProve {
 
 	@PostConstruct
 	public void init() {
-		if(ds==null)
-			ds = new FactoryLocal();
-		prove = new ArrayList<>();
+		//if(ds==null)
+	//		ds = new FactoryLocal();
+	//	prove = new ArrayList<>();
+	//	modello = new ModelloMF();
+	//	ditta = new Ditta();
 	}
 
 	public String getNomeDitta() {
@@ -100,7 +103,7 @@ public class SelectProve {
 		modelloMF = "";
 		numeroRapportoProva = "";
 		prove = null;
-		ditta = (Ditta)	event.getObject();
+		setDitta( (Ditta)	event.getObject());
 	}
 
 	public List<ModelloMF> completeModelloMF(String query) {
@@ -143,9 +146,7 @@ public class SelectProve {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
-	public String go() {
-		return "/pages/viewProva.xhtml";
-	}
+	
 
 
 }

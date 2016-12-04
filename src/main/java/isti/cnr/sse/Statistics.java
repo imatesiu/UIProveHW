@@ -1,3 +1,4 @@
+package isti.cnr.sse;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;

@@ -130,7 +130,7 @@ itemLabel="#{prova}"
                 </p:column>
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search"  action="#{selectProve.go}" >  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="ui-icon-search"  action="#{viewProva.goview}" >  <!--  oncomplete="PF('ProveDialog').show()"--> 
                     <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />
                     <f:setPropertyActionListener target="#{viewProva.numeroRapportoProva}" value="#{selectProve.numeroRapportoProva}" />
                     <f:setPropertyActionListener target="#{viewProva.nomeModello}" value="#{selectProve.modelloMF}" />
