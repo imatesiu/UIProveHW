@@ -84,13 +84,19 @@ itemLabel="#{modelloMF}"
        </h:panelGrid>
         <p:outputLabel for="inputP" value="Select Prova:" />
          <p:ring id="inputP" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
-   <p:commandLink >
-                <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
+          <p:outputPanel style="align: center;" layout="block">
+     
+   <p:commandLink action="#{viewProva.goview}">
+        #{prova.nomeProva}
+                
                   <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prova}" />
                     <f:setPropertyActionListener target="#{viewProva.numeroRapportoProva}" value="#{selectProve.numeroRapportoProva}" />
                     <f:setPropertyActionListener target="#{viewProva.nomeModello}" value="#{selectProve.modelloMF}" />
+                                    
                   
                 </p:commandLink>
+                <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
+                </p:outputPanel>
             </p:ring>
    
    <!-- action="#{viewProva.goview}" -->

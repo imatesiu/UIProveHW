@@ -178,7 +178,7 @@ public class CreaProve {
 
 
 	public void save(ActionEvent actionEvent) {
-		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta());
+		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta(),getDate());
 		MF.setProve(droppedProve);
 		SendRest s = new SendRest();
 		String resutl = s.saveNewModello(MF);
@@ -207,7 +207,7 @@ public class CreaProve {
 	}
 
 	public String goprove() {
-		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta());
+		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta(),new Date());
 		prove = service.createProve(MF);
 		droppedProve = new ArrayList<Prova>();
 		return "/pages/CreaProve.xhtml";

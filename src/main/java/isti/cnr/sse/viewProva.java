@@ -95,6 +95,7 @@ public class viewProva {
 
 	public void setProva(Prova prova) {
 		this.prova = prova;
+		this.note = prova.getNote();
 		allegati = getDownladable(prova);
 
 	}
@@ -167,6 +168,8 @@ public class viewProva {
 	public void save(ActionEvent actionEvent) {
 
 		List<Allegato> al = createAllegati(allegati);
+		prova.setNote(note);
+		prova.setStato(esito);
 		prova.setListallegato(al);
 		SendRest s = new SendRest();
 		String resutl = s.updateProvaHW(prova);

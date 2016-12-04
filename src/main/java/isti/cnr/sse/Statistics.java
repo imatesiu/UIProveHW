@@ -35,11 +35,11 @@ public class Statistics {
 	private void createBubbleModels(){
 		bubbleModel = initBubbleModel();
 		bubbleModel.setTitle("Bubble Chart");
-		bubbleModel.getAxis(AxisType.X).setLabel("Price");
+		//bubbleModel.getAxis(AxisType.X).setLabel("Price");
 		Axis yAxis = bubbleModel.getAxis(AxisType.Y);
 		yAxis.setMin(0);
 		yAxis.setMax(250);
-		yAxis.setLabel("Labels");
+		yAxis.setLabel("Numero di Certificazioni");
 
 
 	}
@@ -48,12 +48,12 @@ public class Statistics {
 		BubbleChartModel model = new BubbleChartModel();
 
 		model.add(new BubbleChartSeries("Acura", 70, 183,55));
-		model.add(new BubbleChartSeries("Alfa Romeo", 45, 92, 36));
-		model.add(new BubbleChartSeries("AM General", 24, 104, 40));
-		model.add(new BubbleChartSeries("Bugatti", 50, 123, 60));
-		model.add(new BubbleChartSeries("BMW", 15, 89, 25));
-		model.add(new BubbleChartSeries("Audi", 40, 180, 80));
-		model.add(new BubbleChartSeries("Aston Martin", 70, 70, 48));
+		model.add(new BubbleChartSeries("AP.esse", 45, 92, 36));
+		model.add(new BubbleChartSeries("Olivetti", 24, 104, 40));
+		model.add(new BubbleChartSeries("RCH", 50, 123, 60));
+		model.add(new BubbleChartSeries("HP", 15, 89, 25));
+		model.add(new BubbleChartSeries("Custom", 40, 180, 80));
+		model.add(new BubbleChartSeries("Epson", 70, 70, 48));
 
 		return model;
 	}
@@ -74,7 +74,7 @@ public class Statistics {
 		BarChartModel model = new BarChartModel();
 
 		ChartSeries boys = new ChartSeries();
-		boys.setLabel("Boys");
+		boys.setLabel("Misuratori Fiscali");
 		boys.set("2004", 120);
 		boys.set("2005", 100);
 		boys.set("2006", 44);
@@ -82,7 +82,7 @@ public class Statistics {
 		boys.set("2008", 25);
 
 		ChartSeries girls = new ChartSeries();
-		girls.setLabel("Girls");
+		girls.setLabel("Registratori Telematici");
 		girls.set("2004", 52);
 		girls.set("2005", 60);
 		girls.set("2006", 110);
@@ -107,10 +107,10 @@ public class Statistics {
 		barModel.setLegendPosition("ne");
 
 		Axis xAxis = barModel.getAxis(AxisType.X);
-		xAxis.setLabel("Gender");
+		xAxis.setLabel("Anno");
 
 		Axis yAxis = barModel.getAxis(AxisType.Y);
-		yAxis.setLabel("Births");
+		yAxis.setLabel("Tipo Modello");
 		yAxis.setMin(0);
 		yAxis.setMax(200);
 	}
@@ -119,7 +119,7 @@ public class Statistics {
 		horizontalBarModel = new HorizontalBarChartModel();
 
 		ChartSeries boys = new ChartSeries();
-		boys.setLabel("Boys");
+		boys.setLabel("Misuratori Fiscali");
 		boys.set("2004", 50);
 		boys.set("2005", 96);
 		boys.set("2006", 44);
@@ -127,7 +127,7 @@ public class Statistics {
 		boys.set("2008", 25);
 
 		ChartSeries girls = new ChartSeries();
-		girls.setLabel("Girls");
+		girls.setLabel("Registratori Telematici");
 		girls.set("2004", 52);
 		girls.set("2005", 60);
 		girls.set("2006", 82);
@@ -142,12 +142,12 @@ public class Statistics {
 		horizontalBarModel.setStacked(true);
 
 		Axis xAxis = horizontalBarModel.getAxis(AxisType.X);
-		xAxis.setLabel("Births");
+		xAxis.setLabel("Tipo Modello");
 		xAxis.setMin(0);
 		xAxis.setMax(200);
 
 		Axis yAxis = horizontalBarModel.getAxis(AxisType.Y);
-		yAxis.setLabel("Gender");        
+		yAxis.setLabel("Anno");        
 	}
 
 }

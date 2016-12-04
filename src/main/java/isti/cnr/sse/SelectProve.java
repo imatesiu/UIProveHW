@@ -28,13 +28,13 @@ public class SelectProve {
 	private String numeroRapportoProva;
 
 
-	@ManagedProperty(value="#{ditta}")
+	//@ManagedProperty(value="#{ditta}")
 	private Ditta ditta;
 
 	//@ManagedProperty(value="#{modelloMF}")
 	private ModelloMF modello;
 
-	@ManagedProperty(value="#{factoryLocal}")
+	//@ManagedProperty(value="#{factoryLocal}")
 	private FactoryLocal ds;
 
 	//@ManagedProperty(value="#{prove}")
@@ -43,7 +43,7 @@ public class SelectProve {
 	@PostConstruct
 	public void init() {
 		//if(ds==null)
-	//		ds = new FactoryLocal();
+			ds = new FactoryLocal();
 	//	prove = new ArrayList<>();
 	//	modello = new ModelloMF();
 	//	ditta = new Ditta();
