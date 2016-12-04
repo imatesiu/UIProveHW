@@ -164,7 +164,7 @@ public class viewProva {
 	public void save(ActionEvent actionEvent) {
 
 		List<Allegato> al = createAllegati(allegati);
-		prova.getListallegato().addAll(al);
+		prova.setListallegato(al);
 		SendRest s = new SendRest();
 		String resutl = s.updateProvaHW(prova);
 		addMessage(resutl);
