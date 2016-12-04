@@ -30,7 +30,6 @@ public class CreaProve {
 	private String numeroRapportoProva;
 	private Date date;
 	
-	@ManagedProperty(value="#{ditta}")
 	private Ditta ditta = new Ditta();
 
 

@@ -81,9 +81,10 @@ itemLabel="#{modelloMF}"
          <h:outputText value="QR" />
     <p:barcode id="qrr" value="14E" type="qr"/>-->
       
+       </h:panelGrid>
         <p:outputLabel for="inputP" value="Select Prova:" />
          <p:ring id="inputP" value="#{selectProve.prove}" var="prova" styleClass="image-ring" easing="easeInOutBack">
-   <p:commandLink action="#{selectProve.go}">
+   <p:commandLink >
                 <p:graphicImage id="img" name="/images/prove/#{prova.tp}.png" />
                   <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prova}" />
                     <f:setPropertyActionListener target="#{viewProva.numeroRapportoProva}" value="#{selectProve.numeroRapportoProva}" />
@@ -91,21 +92,8 @@ itemLabel="#{modelloMF}"
                   
                 </p:commandLink>
             </p:ring>
-   <!--     <p:inputText id="inputP" value="#{selectProve.prova}" required="true" requiredMessage="Please enter..." />
-        <p:autoComplete id="inputP" value="#{selectProve.provaMF}" 
-        completeMethod="#{selectProve.completeProveMF}" 
-         var="prova"
-itemValue="#{prova}"
-itemLabel="#{prova}"
-        converter="#{proveConverter}"  dropdown="true" 
-        
-        >
-          <p:ajax event="itemSelect" listener="#{selectProve.actionMF}"  update="nprova" resetValues="true"/>
-         
-     
-        </p:autoComplete>
-         -->
-    </h:panelGrid>
+   
+   <!-- action="#{viewProva.goview}" -->
   
     <p:separator />
     
