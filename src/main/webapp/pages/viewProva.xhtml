@@ -8,8 +8,16 @@
 
 <h:body>
 <ui:composition    template="/templates/template.xhtml">
+
 	<ui:define name="metadata">
 	</ui:define>
+	<ui:define name="title">
+        Prove #{viewProva.nomeModello}
+    </ui:define>
+
+    <ui:define name="description">
+        Informazioni Prove
+    </ui:define>
 	<ui:define name="content">
 <script type="text/javascript">
 function start() {
