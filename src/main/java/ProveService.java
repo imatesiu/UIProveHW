@@ -7,6 +7,7 @@ import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
+import isti.cnr.sse.rest.data.ModelloMF;
 import isti.cnr.sse.rest.data.Prova;
 import isti.cnr.sse.rest.data.TipoProve;
 
@@ -14,53 +15,24 @@ import isti.cnr.sse.rest.data.TipoProve;
 @ApplicationScoped
 public class ProveService {
     
-    private final static String[] colors;
-	
-	private final static String[] brands;
     
-    static {
-		colors = new String[10];
-		colors[0] = "Black";
-		colors[1] = "White";
-		colors[2] = "Green";
-		colors[3] = "Red";
-		colors[4] = "Blue";
-		colors[5] = "Orange";
-		colors[6] = "Silver";
-		colors[7] = "Yellow";
-		colors[8] = "Brown";
-		colors[9] = "Maroon";
-		
-		brands = new String[10];
-		brands[0] = "BMW";
-		brands[1] = "Mercedes";
-		brands[2] = "Volvo";
-		brands[3] = "Audi";
-		brands[4] = "Renault";
-		brands[5] = "Fiat";
-		brands[6] = "Volkswagen";
-		brands[7] = "Honda";
-		brands[8] = "Jaguar";
-		brands[9] = "Ford";
-	}
-    
-    public List<Prova> createProve() {
+    public List<Prova> createProve(ModelloMF mF) {
         List<Prova> list = new ArrayList<Prova>();
 		
-	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale ,  getRandomSoldState(),null));
-	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Alimentazione Senza Vincolo Fiscale", "desc",TipoProve.AlimentazioneBatteriaSenzaVincoloFiscale ,  getRandomSoldState(),mF));
+	    list.add( new Prova ("Batteria Sotto Protezione SF", "desc",TipoProve.BatteriaSottoProtezioneSF ,  getRandomSoldState(),mF));
 
-	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState(),null));
-	    list.add( new Prova ("Disturbi Elettromagnetici", "desc",TipoProve.DisturbiElettromagnetici ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Disturbi Condotti", "desc",TipoProve.DisturbiCondotti ,  getRandomSoldState(),mF));
+	    list.add( new Prova ("Disturbi Elettromagnetici", "desc",TipoProve.DisturbiElettromagnetici ,  getRandomSoldState(),mF));
 
-	    list.add( new Prova ("Impermeabilità", "desc",TipoProve.Impermeabilita ,  getRandomSoldState(),null));
-	    list.add( new Prova ("Guasto e Malfunzionamento", "desc",TipoProve.Guastoemalfunzionamento ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Impermeabilità", "desc",TipoProve.Impermeabilita ,  getRandomSoldState(),mF));
+	    list.add( new Prova ("Guasto e Malfunzionamento", "desc",TipoProve.Guastoemalfunzionamento ,  getRandomSoldState(),mF));
 
 
-	    list.add( new Prova ("Termiche", "desc",TipoProve.Termiche ,  getRandomSoldState(),null));
-	    list.add( new Prova ("Vibrazione", "desc",TipoProve.Vibrazione ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Termiche", "desc",TipoProve.Termiche ,  getRandomSoldState(),mF));
+	    list.add( new Prova ("Vibrazione", "desc",TipoProve.Vibrazione ,  getRandomSoldState(),mF));
 	    
-	    list.add( new Prova ("Scariche Elettrostatiche", "desc",TipoProve.ScaricheElettrostatiche ,  getRandomSoldState(),null));
+	    list.add( new Prova ("Scariche Elettrostatiche", "desc",TipoProve.ScaricheElettrostatiche ,  getRandomSoldState(),mF));
         
         return list;
     }
@@ -71,11 +43,5 @@ public class ProveService {
 		return (Math.random() > 0.5) ? true: false;
 	}
     
-    public List<String> getColors() {
-        return Arrays.asList(colors);
-    }
-    
-    public List<String> getBrands() {
-        return Arrays.asList(brands);
-    }
+   
 }

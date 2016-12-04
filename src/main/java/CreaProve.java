@@ -53,7 +53,7 @@ public class CreaProve {
 
 	@PostConstruct
 	public void init() {
-		prove = service.createProve();
+		
 		droppedProve = new ArrayList<Prova>();
 		//ditte = Init.ini();
 		//ds = new FactoryLocal("new");
@@ -98,11 +98,7 @@ public class CreaProve {
 	
 	
 	
-	public void actionMF(SelectEvent  event){
-		ModelloMF ModelloMF = (ModelloMF)	event.getObject();
-		numeroRapportoProva = ModelloMF.getNumeroRapportoProva();
-	
-	}
+
 
 
 	public void setService(ProveService service) {
@@ -158,42 +154,7 @@ public class CreaProve {
 		this.selected = selectedProve;
 	}
 
-	public List<ModelloMF> completeModelloMF(String query) {
-		return ditta.queryByName(query);
-	}
 	
-	public List<String> completeModelloMF2(String query) {
-		
-		List<String> allThemes =  FactoryLocal.getNomeModello(ditte, getNomeDitta());;
-		List<String> filteredThemes = new ArrayList<String>();
-
-		for (int i = 0; i < allThemes.size(); i++) {
-			String skin = allThemes.get(i);
-			if(skin.toLowerCase().startsWith(query)) {
-				filteredThemes.add(skin);
-			}
-		}
-
-		return filteredThemes;
-	}
-	
-	public List<Ditta> completeDitta(String query) {
-		return ds.queryByName(query);
-	}
-
-	public List<String> completeDitta2(String query) {
-		List<String> allThemes = FactoryLocal.getNomeDitta(ditte);
-		List<String> filteredThemes = new ArrayList<String>();
-
-		for (int i = 0; i < allThemes.size(); i++) {
-			String skin = allThemes.get(i);
-			if(skin.toLowerCase().startsWith(query)) {
-				filteredThemes.add(skin);
-			}
-		}
-		
-		return filteredThemes;
-	}
 
 
 	public String getNomeDitta() {
@@ -245,5 +206,11 @@ public class CreaProve {
 		return "/index.xhtml";
 	}
 
+	public String goprove() {
+		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta());
+		prove = service.createProve(MF);
+		droppedProve = new ArrayList<Prova>();
+		return "/pages/CreaProve.xhtml";
+	}
 
 }

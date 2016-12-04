@@ -71,7 +71,7 @@ public class SendRest {
 		try{
 			Gson g = new Gson();
 			String res = post(g.toJson(MF),"/modello/");
-			if(res=="OK"){
+			if(res.equals("OK")){
 				return "Data saved";
 			}
 		}catch (Exception e) {
@@ -99,6 +99,19 @@ public class SendRest {
 			e.add(new SelectItem(se, se));
 		}
 		return e;
+	}
+
+	public String updateProvaHW(Prova prova) {
+		try{
+			Gson g = new Gson();
+			String res = post(g.toJson(prova),"/provaupdated/");
+			if(res.equals("OK")){
+				return "Data saved";
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "Problem data unsaved";
 	}
 
 }

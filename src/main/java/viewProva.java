@@ -1,5 +1,4 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -9,12 +8,11 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import org.apache.commons.codec.binary.Base64;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -22,6 +20,7 @@ import org.primefaces.model.StreamedContent;
 import isti.cnr.sse.rest.data.Allegato;
 import isti.cnr.sse.rest.data.Esito;
 import isti.cnr.sse.rest.data.Prova;
+import isti.cnr.sse.rest.data.SendRest;
 
 @ManagedBean
 @SessionScoped
@@ -160,4 +159,46 @@ public class viewProva {
 	public StreamedContent  getDownload() {
 		return selecteda;
 	}
+
+
+	public void save(ActionEvent actionEvent) {
+
+		List<Allegato> al = createAllegati(allegati);
+		prova.getListallegato().addAll(al);
+		SendRest s = new SendRest();
+		String resutl = s.updateProvaHW(prova);
+		addMessage(resutl);
+	}
+
+	private List<Allegato> createAllegati(List<StreamedContent> allegati2) {
+		List<Allegato> la = new ArrayList<>();
+		try {
+			if(!allegati2.isEmpty()){
+				for (StreamedContent s : allegati2) {
+					if(	s.getStream() instanceof FileInputStream){
+						Allegato a = new Allegato();
+						a.init(prova.getNumeroRapportoProva(), prova.getNomeModello() , prova.getNomeProva(), s.getName(),
+								s.getContentType());
+						FileInputStream fi = (FileInputStream) s.getStream();
+						byte imageData[] = new byte[(int)fi.available()];
+
+						fi.read(imageData);
+						String data = Base64.encodeBase64URLSafeString(imageData);
+						a.setDati(data);
+						la.add(a);
+					}
+				}
+			}	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return la;
+	}
+
+	public void addMessage(String summary) {
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
 }
