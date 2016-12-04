@@ -10,12 +10,19 @@
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Page template with PrimeFaces</title>
+		 
+ 
+   
+ 
+
 		<ui:debug />
 		<f:metadata>
 			<ui:insert name="metadata" />
 		</f:metadata>
 		
 		<h:head>
+		 <h:outputStylesheet name="main/css/showcase.css" />
+		 <ui:insert name="head" />
 			<!--  <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"  />-->
 </h:head>
 <h:body>
@@ -33,6 +40,15 @@
 				
 				<p:layoutUnit	styleClass="layoutUnitCenter" 	position="center">
 					<h:form id="mainForm">
+						
+						<div class="ContentSideSections">
+                        <div class="Content100 overHidden TextShadow">
+                            <span class="fontSize30 TextShadow orange regularFont marginBottom20 dispBlock"><ui:insert name="title" /></span>
+                            <span class="defaultText dispTable"><ui:insert name="description" />
+                            </span>
+                        </div>
+                    </div>
+						
 						
 						<p:growl id="msgs" showDetail="true" />
 						<ui:insert name="content" />
