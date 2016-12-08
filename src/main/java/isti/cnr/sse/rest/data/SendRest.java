@@ -2,6 +2,7 @@ package isti.cnr.sse.rest.data;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,14 +31,36 @@ public class SendRest {
 		return d.getListaDitte();
 	}
 	
-	public Pair<List<Pair<String, String>>,Map<String, Integer>> getStat(){
-		Type listType = new TypeToken<Pair<List<Pair<String, String>>,Map<String, Integer>>>(){}.getType();
+	public Tuple<List<Tuple<String,String>>,Map<String, String>> getStat(){
+		Type listType = new TypeToken<Tuple<ArrayList<Tuple<String,String>>,HashMap<String, String>>>(){}.getType();
+		
 		String result = sendGet("/stat/");
 		Gson g = new Gson();
-		
-		Pair<List<Pair<String, String>>,Map<String, Integer>> d = g.fromJson(result, listType);
-		return d;
+		try{
+			Tuple<List<Tuple<String,String>>,Map<String, String>> d = g.fromJson(result, listType);
+			return d;
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(""+e);
+		}
+		return new Tuple<>();
 	}
+	
+	public List<Tuple<String,String>> getStat2(){
+		Type listType = new TypeToken<ArrayList<Tuple<String,String>>>(){}.getType();
+		
+		String result = sendGet("/stat/");
+		Gson g = new Gson();
+		try{
+			List<Tuple<String,String>> d = g.fromJson(result, listType);
+			return d;
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(""+e);
+		}
+		return new ArrayList<>();
+	}
+
 
 	public String sendGet(String path){
 		Client client = ClientBuilder.newClient();
