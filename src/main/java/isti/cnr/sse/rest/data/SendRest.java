@@ -3,6 +3,7 @@ package isti.cnr.sse.rest.data;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.model.SelectItem;
 import javax.ws.rs.client.Client;
@@ -11,6 +12,8 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +28,15 @@ public class SendRest {
 		Ditte d  = new Ditte();
 		d = g.fromJson(result, Ditte.class);
 		return d.getListaDitte();
+	}
+	
+	public Pair<List<Pair<String, String>>,Map<String, Integer>> getStat(){
+		Type listType = new TypeToken<Pair<List<Pair<String, String>>,Map<String, Integer>>>(){}.getType();
+		String result = sendGet("/stat/");
+		Gson g = new Gson();
+		
+		Pair<List<Pair<String, String>>,Map<String, Integer>> d = g.fromJson(result, listType);
+		return d;
 	}
 
 	public String sendGet(String path){

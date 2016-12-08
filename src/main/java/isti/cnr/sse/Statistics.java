@@ -1,8 +1,12 @@
 package isti.cnr.sse;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
@@ -10,6 +14,8 @@ import org.primefaces.model.chart.BubbleChartModel;
 import org.primefaces.model.chart.BubbleChartSeries;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.HorizontalBarChartModel;
+
+import isti.cnr.sse.rest.data.SendRest;
 
 @ManagedBean
 @ViewScoped
@@ -23,8 +29,14 @@ public class Statistics {
 
 	@PostConstruct
 	public void init() {
-		createBubbleModels();
-		createBarModels();
+
+		SendRest e = new SendRest();
+		
+		Pair<List<Pair<String, String>>,Map<String, Integer>> data = e.getStat();
+		List<Pair<String, String>> ldittanumc = data.getLeft();
+		Map<String, Integer> annoxncert = data.getRight();
+		createBubbleModels(ldittanumc);
+		createBarModels(annoxncert);
 	}
 
 	public BubbleChartModel getBubbleModel() {
@@ -32,16 +44,34 @@ public class Statistics {
 	}
 
 
-	private void createBubbleModels(){
-		bubbleModel = initBubbleModel();
+	private void createBubbleModels(List<Pair<String, String>> ldittanumc){
+		bubbleModel = initBubbleModel(ldittanumc);
 		bubbleModel.setTitle("Bubble Chart");
 		//bubbleModel.getAxis(AxisType.X).setLabel("Price");
 		Axis yAxis = bubbleModel.getAxis(AxisType.Y);
 		yAxis.setMin(0);
-		yAxis.setMax(250);
+		yAxis.setMax(50);
 		yAxis.setLabel("Numero di Certificazioni");
 
 
+	}
+
+	private BubbleChartModel initBubbleModel(List<Pair<String, String>> ldittanumc) {
+		BubbleChartModel model = new BubbleChartModel();
+		int x = 10;
+		try{
+			for(Pair<String, String> pair : ldittanumc){
+				String nome = pair.getLeft();
+				Integer num = Integer.getInteger(pair.getRight());
+				model.add(new BubbleChartSeries(nome, x, num,num*10));
+				x = x + 10 + (num*10);
+			}
+		}catch (Exception e) {
+
+		}
+
+
+		return model;
 	}
 
 	private BubbleChartModel initBubbleModel(){
@@ -95,13 +125,13 @@ public class Statistics {
 		return model;
 	}
 
-	private void createBarModels() {
-		createBarModel();
+	private void createBarModels(Map<String, Integer> annoxncert) {
+		createBarModel(annoxncert);
 		createHorizontalBarModel();
 	}
 
-	private void createBarModel() {
-		barModel = initBarModel();
+	private void createBarModel(Map<String, Integer> annoxncert) {
+		barModel = initBarModel(annoxncert);
 
 		barModel.setTitle("Bar Chart");
 		barModel.setLegendPosition("ne");
@@ -113,6 +143,24 @@ public class Statistics {
 		yAxis.setLabel("Tipo Modello");
 		yAxis.setMin(0);
 		yAxis.setMax(200);
+	}
+
+	private BarChartModel initBarModel(Map<String, Integer> annoxncert) {
+		BarChartModel model = new BarChartModel();
+
+		ChartSeries boys = new ChartSeries();
+		boys.setLabel("Misuratori Fiscali");
+		for(String key :annoxncert.keySet()){
+			boys.set(key, annoxncert.get(key));
+
+		}
+
+
+
+		model.addSeries(boys);
+
+
+		return model;
 	}
 
 	private void createHorizontalBarModel() {
