@@ -19,6 +19,7 @@ public class InsertMF {
 	private String nomeDispositivo;
 	private String nomeDitta;
 	private String numeroRapportoProva;
+	private boolean value;
 
 
 	@PostConstruct
@@ -26,10 +27,23 @@ public class InsertMF {
 		
 		SendRest s = new SendRest();
 		ListDitta = s.getSelectedItemDitte();
-		
+		value = false;
 	}
 
 	
+	
+	public boolean isValue() {
+		return value;
+	}
+
+
+
+	public void setValue(boolean value) {
+		this.value = value;
+	}
+
+
+
 	public String getNomeDitta() {
 		return nomeDitta;
 	}
@@ -80,4 +94,9 @@ public class InsertMF {
 	public String go() {
 		return "/pages/CreaProve.xhtml";
 	}
+	
+	 public void addMessage() {
+	        String summary = value ? "Checked" : "Unchecked";
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+	    }
 }

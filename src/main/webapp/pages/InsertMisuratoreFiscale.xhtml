@@ -36,8 +36,10 @@
        <p:outputLabel value="Numero Rapporto di Prova:" for="inputnrapportoprova" />
        <p:inputText id="inputnrapportoprova" value="#{insertMF.numeroRapportoProva}" required="true" requiredMessage="Please enter number" />
        
-
-       
+ <p:outputLabel value="E' Telematico:" for="isRT" />
+        <p:selectBooleanCheckbox  id="isRT" value="#{insertMF.value}">
+            <p:ajax update="msgs" listener="#{insertMF.addMessage}" />
+        </p:selectBooleanCheckbox>
      
     
     </h:panelGrid>
@@ -54,7 +56,7 @@
                     <f:setPropertyActionListener target="#{creaProve.nomeDitta}" value="#{insertMF.nomeDitta}" />
                     <f:setPropertyActionListener target="#{creaProve.modelloMF}" value="#{insertMF.nomeDispositivo}" />
                     <f:setPropertyActionListener target="#{creaProve.numeroRapportoProva}" value="#{insertMF.numeroRapportoProva}" />
-                    
+                    <f:setPropertyActionListener target="#{creaProve.value}" value="#{insertMF.value}" />  
                     </p:commandButton>
     
     

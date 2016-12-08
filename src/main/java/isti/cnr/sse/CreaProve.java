@@ -28,6 +28,7 @@ public class CreaProve {
 	private String nomeDitta;
 	private String modelloMF;
 	private String numeroRapportoProva;
+	private boolean value;
 	private Date date;
 	
 	private Ditta ditta = new Ditta();
@@ -63,6 +64,19 @@ public class CreaProve {
 
 	public Date getDate() {
 		return date;
+	}
+
+
+	
+
+	public boolean isValue() {
+		return value;
+	}
+
+
+
+	public void setValue(boolean value) {
+		this.value = value;
 	}
 
 
@@ -179,6 +193,7 @@ public class CreaProve {
 
 	public void save(ActionEvent actionEvent) {
 		ModelloMF MF = new ModelloMF(getModelloMF(), getNumeroRapportoProva(), getNomeDitta(),getDate());
+		MF.setRT(value);
 		MF.setProve(droppedProve);
 		SendRest s = new SendRest();
 		String resutl = s.saveNewModello(MF);

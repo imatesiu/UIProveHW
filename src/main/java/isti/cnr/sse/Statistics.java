@@ -74,7 +74,7 @@ public class Statistics {
 				model.add(new BubbleChartSeries(nome, x, num,radius));
 				if(num<=0)
 					num = 1; 
-				x = x +  (num*10);
+				x = x +  (num);
 			}
 		}catch (Exception e) {
 
