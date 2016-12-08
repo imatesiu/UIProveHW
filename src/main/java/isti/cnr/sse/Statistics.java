@@ -1,6 +1,7 @@
 package isti.cnr.sse;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -49,9 +50,9 @@ public class Statistics {
 	private void createBubbleModels(List<Tuple<String,String>> ldittanumc){
 		bubbleModel = initBubbleModel(ldittanumc);
 		bubbleModel.setTitle("Bubble Chart");
-		//bubbleModel.getAxis(AxisType.X).setLabel("Price");
+		bubbleModel.getAxis(AxisType.X).setTickFormat(" ");//.setLabel("Price");
 		Axis yAxis = bubbleModel.getAxis(AxisType.Y);
-		yAxis.setMin(-10);
+		yAxis.setMin(-15);
 		yAxis.setMax(50);
 		yAxis.setLabel("Numero di Certificazioni");
 
@@ -67,7 +68,12 @@ public class Statistics {
 
 				String nome = pair.getPrimo();
 				Integer num = Integer.valueOf(pair.getSecondo());
-				model.add(new BubbleChartSeries(nome, x, num,num*10));
+				Random ran = new Random();
+				int r= ran.nextInt(100) + 5;
+				int radius = num;	
+				model.add(new BubbleChartSeries(nome, x, num,radius));
+				if(num<=0)
+					num = 1; 
 				x = x +  (num*10);
 			}
 		}catch (Exception e) {
