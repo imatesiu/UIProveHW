@@ -30,7 +30,7 @@ public class CreaProve {
 	private String numeroRapportoProva;
 	private boolean value;
 	private Date date;
-	
+	private boolean esterno;
 	private Ditta ditta = new Ditta();
 
 
@@ -59,6 +59,21 @@ public class CreaProve {
 		//ditte = Init.ini();
 		//ds = new FactoryLocal("new");
 	}
+
+
+	
+
+	public boolean isEsterno() {
+		return esterno;
+	}
+
+
+
+
+	public void setEsterno(boolean esterno) {
+		this.esterno = esterno;
+	}
+
 
 
 

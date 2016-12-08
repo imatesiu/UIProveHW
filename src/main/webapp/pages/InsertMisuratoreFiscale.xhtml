@@ -40,6 +40,11 @@
         <p:selectBooleanCheckbox  id="isRT" value="#{insertMF.value}">
             <p:ajax update="msgs" listener="#{insertMF.addMessage}" />
         </p:selectBooleanCheckbox>
+        
+        <p:outputLabel value="Utilizzo all'aperto?:" for="isAperto" />
+        <p:selectBooleanCheckbox  id="isAperto" value="#{insertMF.esterno}">
+            <p:ajax update="msgs" listener="#{insertMF.addMessageA}" />
+        </p:selectBooleanCheckbox>
      
     
     </h:panelGrid>
@@ -56,7 +61,8 @@
                     <f:setPropertyActionListener target="#{creaProve.nomeDitta}" value="#{insertMF.nomeDitta}" />
                     <f:setPropertyActionListener target="#{creaProve.modelloMF}" value="#{insertMF.nomeDispositivo}" />
                     <f:setPropertyActionListener target="#{creaProve.numeroRapportoProva}" value="#{insertMF.numeroRapportoProva}" />
-                    <f:setPropertyActionListener target="#{creaProve.value}" value="#{insertMF.value}" />  
+                    <f:setPropertyActionListener target="#{creaProve.value}" value="#{insertMF.value}" /> 
+                    <f:setPropertyActionListener target="#{creaProve.esterno}" value="#{insertMF.esterno}" />  
                     </p:commandButton>
     
     

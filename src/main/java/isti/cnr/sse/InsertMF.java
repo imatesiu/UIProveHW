@@ -20,7 +20,7 @@ public class InsertMF {
 	private String nomeDitta;
 	private String numeroRapportoProva;
 	private boolean value;
-
+	private boolean esterno;
 
 	@PostConstruct
 	public void init() {
@@ -32,6 +32,18 @@ public class InsertMF {
 
 	
 	
+	public boolean isEsterno() {
+		return esterno;
+	}
+
+
+
+	public void setEsterno(boolean esterno) {
+		this.esterno = esterno;
+	}
+
+
+
 	public boolean isValue() {
 		return value;
 	}
@@ -97,6 +109,10 @@ public class InsertMF {
 	
 	 public void addMessage() {
 	        String summary = value ? "Checked" : "Unchecked";
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+	    }
+	 public void addMessageA() {
+	        String summary = esterno ? "Checked" : "Unchecked";
 	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
 	    }
 }
