@@ -136,8 +136,8 @@ public class SendRest {
 		return e;
 	}
 	
-	public List<SelectItem> getSelectedItemModelli(String ditta) {
-		String result = sendGet("/modellistring/"+ditta);
+	public List<SelectItem> getSelectedItemModelli(String ditta, String anno) {
+		String result = sendGet("/modellistring/"+ditta+"/"+anno);
 		Type listType = new TypeToken<ArrayList<String>>(){}.getType();
 		Gson g = new Gson();
 		List<String> le = g.fromJson(result, listType);

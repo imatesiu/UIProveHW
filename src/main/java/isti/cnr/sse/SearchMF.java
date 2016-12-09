@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
 import org.primefaces.event.SelectEvent;
@@ -15,7 +15,7 @@ import isti.cnr.sse.rest.data.Prova;
 import isti.cnr.sse.rest.data.SendRest;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class SearchMF {
 	
 	private String nomeDispositivo;
@@ -28,7 +28,7 @@ public class SearchMF {
 	
 	
 	private List<SelectItem> Ditte;
-	private List<SelectItem> Modelli;
+	private List<SelectItem> Modelli = new ArrayList<>();
 
 	@PostConstruct
 	public void init() {
@@ -115,12 +115,12 @@ public class SearchMF {
 	public void actionDitta(SelectEvent  event){
 		nomeDispositivo = "";
 		numeroRapportoProva = "";
-		anno = "";
 		Prove = new ArrayList<>();
 		String d = (String)	event.getObject();
 		SendRest s = new SendRest();
 		nomeDitta = d;
-		Modelli = s.getSelectedItemModelli(d); 
+		Modelli.addAll(s.getSelectedItemModelli(d,anno)); 
+		System.out.println("");
 	}
 	
 	

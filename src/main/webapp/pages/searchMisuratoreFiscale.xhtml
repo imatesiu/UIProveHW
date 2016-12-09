@@ -35,36 +35,35 @@
        <p:selectOneMenu id="inputDittas" value="#{searchMF.nomeDitta}" update="@form" style="width:125px" required="true">
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItems value="#{searchMF.ditte}" />
-            <p:ajax event="itemSelect" listener="#{searchMF.actionDitta}" update="@form"/>
-            
+            <p:ajax event="itemSelect" listener="#{searchMF.actionDitta}" update="inputnomeDispos"/>
+       
         </p:selectOneMenu>
        
        <p:outputLabel value="Nome Dispositivo in Prova:" for="inputnomeDispos" />
        <p:selectOneMenu id="inputnomeDispos" value="#{searchMF.nomeDispositivo}" update="@form" style="width:125px" required="true">
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItems value="#{searchMF.modelli}" />
-             <p:ajax event="itemSelect" listener="#{searchMF.actionModello}" update="@form"/>
+             <p:ajax event="itemSelect" listener="#{searchMF.actionModello}" update="Table selectedTable isAperto isRT inputnrapportoprovas"/>
        </p:selectOneMenu>
              
        <p:outputLabel value="Numero Rapporto di Prova:" for="inputnrapportoprovas" />
        <p:outputLabel id="inputnrapportoprovas" value="#{searchMF.numeroRapportoProva}"  />
        
  <p:outputLabel value="E' Telematico:" for="isRT" />
-        <p:selectBooleanCheckbox  id="isRT" value="#{searchMF.value}" disabled="true">
-           
-        </p:selectBooleanCheckbox>
+        <p:selectBooleanCheckbox  id="isRT" value="#{searchMF.value}" disabled="true"/>     
+      
         
         <p:outputLabel value="Utilizzo all'aperto?:" for="isAperto" />
-        <p:selectBooleanCheckbox  id="isAperto" value="#{searchMF.esterno}" disabled="true">
+        <p:selectBooleanCheckbox  id="isAperto" value="#{searchMF.esterno}" disabled="true"/>
          
-        </p:selectBooleanCheckbox>
+       
      
     
     </h:panelGrid>
     
     <br/><br/>
-  <!-- rendered="#{not empty creaProve.droppedProve}" -->
-     <p:dataTable id="selectedTable" var="prove" value="#{searchMF.prove}"  rendered="#{not empty searchMF.prove}"  >
+  <!-- rendered="#{not empty searchMF.prove}" -->
+     <p:dataTable id="selectedTable" var="prove" value="#{searchMF.prove}"    >
                 <p:column headerText="Nome Prova">
                     <h:outputText value="#{prove.nomeProva}" />
                 </p:column>
@@ -91,7 +90,7 @@
                 </p:column> --> 
             </p:dataTable>
  
-    </p:panel>
+  
     
     
 </h:form>
