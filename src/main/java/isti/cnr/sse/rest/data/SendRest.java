@@ -135,6 +135,18 @@ public class SendRest {
 		}
 		return e;
 	}
+	
+	public List<SelectItem> getSelectedItemModelli(String ditta) {
+		String result = sendGet("/modellistring/"+ditta);
+		Type listType = new TypeToken<ArrayList<String>>(){}.getType();
+		Gson g = new Gson();
+		List<String> le = g.fromJson(result, listType);
+		List<SelectItem> e = new ArrayList<>();
+		for (String se : le) {
+			e.add(new SelectItem(se, se));
+		}
+		return e;
+	}
 
 	public String updateProvaHW(Prova prova) {
 		try{
@@ -147,6 +159,14 @@ public class SendRest {
 			// TODO: handle exception
 		}
 		return "Problem data unsaved";
+	}
+
+	public ModelloMF getModelloMF(String nomeDitta, String modello) {
+		String result = sendGet("/modello/"+nomeDitta+"/"+modello);
+		//Type listType = new TypeToken<ModelloMF>(){}.getType();
+		Gson g = new Gson();
+		ModelloMF le = g.fromJson(result, ModelloMF.class);
+		return le;
 	}
 
 }
