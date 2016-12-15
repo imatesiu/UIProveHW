@@ -18,7 +18,7 @@
 
 <h:head>
 		 <h:outputStylesheet name="main/css/showcase.css" />
-		 <ui:insert name="head" />
+		 
 			<!--  <p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"  />-->
 </h:head>
 <h:body>
@@ -28,34 +28,38 @@
 					<ui:include src="templates/header.xhtml" />
 				</p:layoutUnit>
 		
-				<p:layoutUnit position="west" id="west" resizable="false"  style="height:580px;overflow:hidden;" size="225">
-					
-				</p:layoutUnit>
+				
 				
 				
 				
 				<p:layoutUnit	styleClass="layoutUnitCenter" 	position="center">
 					<h:form id="mainForm">
 						
-						<div class="ContentSideSections">
+						<div class="ContentSideSections" >
                         <div class="Content100 overHidden TextShadow">
-                            <span class="fontSize30 TextShadow orange regularFont marginBottom20 dispBlock"><ui:insert name="title" /></span>
-                            <span class="defaultText dispTable"><ui:insert name="description" />
+                            <span class="fontSize30 TextShadow orange regularFont marginBottom20 dispBlock">
+
+							</span>
+                            <span class="defaultText dispTable">
+                            
                             </span>
                         </div>
                     </div>
-						
+				<div align="center"  >		
 						<p:growl id="pwd" showDetail="true" sticky="true"  />
-	  <h:panelGrid columns="2" cellpadding="5">
+						
+	  <h:panelGrid columns="2" cellpadding="5" >
 		<p:outputLabel value="Username " />
 		<p:inputText value="#{loginBean.username}" required="true" />
 		
 		<p:outputLabel value="Password" />
 		<p:password value="#{loginBean.password}" required="true"/>
 		
-		<p:commandButton value="Login" action="#{loginBean.login}"/>
+		
 						
 		</h:panelGrid>				
+		<p:commandButton value="Login" action="#{loginBean.login}"  update="pwd"/>
+		</div>
 					</h:form>
 				</p:layoutUnit>
 				
