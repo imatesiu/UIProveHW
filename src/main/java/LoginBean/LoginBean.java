@@ -54,16 +54,23 @@ public class LoginBean {
 					new FacesMessage(FacesMessage.SEVERITY_WARN,
 							"Incorrect Username and Passowrd",
 							"Please enter correct username and Password"));
-			
-			  
+
+
 			return "login";
 		}
 	}
-	
+
 	//logout event, invalidate session
-		public String logout(ActionEvent event) {
-			HttpSession session = SessionUtils.getSession();
-			session.invalidate();
-			return "login";
-		}
+	public String logout(ActionEvent event) {
+		HttpSession session = SessionUtils.getSession();
+		session.invalidate();
+		return "login";
+	}
+
+	public boolean getPermission(){
+		HttpSession session = SessionUtils.getSession();
+		String o = session.getAttribute("username").toString();
+		return true;
+
+	}
 }

@@ -13,7 +13,7 @@
 			
 				
 				<p:menu toggleable="true" ajax="false">
-        <p:submenu label="Crea">
+        <p:submenu label="Crea" rendered="#{loginBean.permission}">
             <p:menuitem value="Ditta" url="/pages/InsertDitta.xhtml" icon="ui-icon-plus" />
             <p:menuitem value="Modello" url="/pages/InsertMisuratoreFiscale.xhtml" icon="ui-icon-print"/>
         <!--   <p:menuitem value="Prove" url="/pages/CreaProve.xhtml" icon="ui-icon-arrowrefresh-1-w"/> -->  
@@ -25,11 +25,11 @@
            <p:resetInput target="contentPanel" />
            <p:ajax update="contentPanel" resetValues="true" />-->
           </p:menuitem>
-       <p:submenu label="Cerca">
+       <p:submenu label="Cerca" rendered="#{loginBean.permission}">
        <p:menuitem value="Prove" url="/pages/searchMisuratoreFiscale.xhtml"  icon="ui-icon-search"/>
        </p:submenu>
          </p:submenu>
-         <p:submenu label="Statistiche">
+         <p:submenu label="Statistiche" rendered="#{loginBean.permission}">
           <p:menuitem value="Statistiche" url="/pages/statistic.xhtml" icon="ui-icon-info"/>
      <!--      <p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
 		<p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
