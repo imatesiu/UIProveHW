@@ -35,6 +35,9 @@
 		<p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
        --> 
          </p:submenu>
+         <p:submenu label="Exit">
+          <p:menuitem value="Logout" action="#{loginBean.logout}"/>
+         </p:submenu>
        
     </p:menu>
 		</p:outputPanel>

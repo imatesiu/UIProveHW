@@ -6,7 +6,7 @@
 	<!-- File(s) appended to a request for a URL that is not mapped to a web 
 		component -->
 	<welcome-file-list>
-		<welcome-file>index.xhtml</welcome-file>
+		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<!-- Define the JSF servlet (manages the request processing life cycle for 
@@ -32,4 +32,7 @@
 		<param-name>facelets.SKIP_COMMENTS</param-name>
 		<param-value>true</param-value>
 	</context-param>
+	
+
+	
 </web-app>
