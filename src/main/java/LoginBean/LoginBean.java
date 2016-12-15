@@ -51,7 +51,7 @@ public class LoginBean {
 		} else{
 			FacesContext.getCurrentInstance().addMessage(
 					null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
 							"Incorrect Username and Passowrd",
 							"Please enter correct username and Password"));
 

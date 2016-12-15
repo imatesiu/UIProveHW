@@ -22,6 +22,11 @@
 		<param-value>delta</param-value>
 	</context-param>
 
+	<context-param>
+		<param-name>primefaces.FONT_AWESOME</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
 	<!-- Map following files to the JSF servlet -->
 	<servlet-mapping>
 		<servlet-name>faces-servlet</servlet-name>
@@ -32,7 +37,7 @@
 		<param-name>facelets.SKIP_COMMENTS</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
 
-	
+
+
 </web-app>

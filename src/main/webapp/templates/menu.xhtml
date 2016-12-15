@@ -14,29 +14,29 @@
 				
 				<p:menu toggleable="true" ajax="false">
         <p:submenu label="Crea" rendered="#{loginBean.permission}">
-            <p:menuitem value="Ditta" url="/pages/InsertDitta.xhtml" icon="ui-icon-plus" />
-            <p:menuitem value="Modello" url="/pages/InsertMisuratoreFiscale.xhtml" icon="ui-icon-print"/>
+            <p:menuitem value="Ditta" url="/pages/InsertDitta.xhtml" icon="fa fa-plus-square" />
+            <p:menuitem value="Modello" url="/pages/InsertMisuratoreFiscale.xhtml" icon="fa fa-print"/>
         <!--   <p:menuitem value="Prove" url="/pages/CreaProve.xhtml" icon="ui-icon-arrowrefresh-1-w"/> -->  
 
         </p:submenu>
          <p:submenu label="Modifica">
-          <p:menuitem value="Prove" url="/pages/selectProve.xhtml"  icon="ui-icon-clipboard">
+          <p:menuitem value="Prove" url="/pages/selectProve.xhtml"  icon="fa fa-calculator">
            <!--  <p:ajax  execute="@this"  listener="#{selectProve.reset}" update=":contentPanel" resetValues="true"/>
            <p:resetInput target="contentPanel" />
            <p:ajax update="contentPanel" resetValues="true" />-->
           </p:menuitem>
        <p:submenu label="Cerca" rendered="#{loginBean.permission}">
-       <p:menuitem value="Prove" url="/pages/searchMisuratoreFiscale.xhtml"  icon="ui-icon-search"/>
+       <p:menuitem value="Prove" url="/pages/searchMisuratoreFiscale.xhtml"  icon="fa fa-search-plus"/>
        </p:submenu>
          </p:submenu>
          <p:submenu label="Statistiche" rendered="#{loginBean.permission}">
-          <p:menuitem value="Statistiche" url="/pages/statistic.xhtml" icon="ui-icon-info"/>
+          <p:menuitem value="Statistiche" url="/pages/statistic.xhtml" icon="fa fa-info-circle"/>
      <!--      <p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
 		<p:menuitem value="Prove" actionListener="#{menuView.statisticProva}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
        --> 
          </p:submenu>
          <p:submenu label="Exit">
-          <p:menuitem value="Logout" actionListener="#{loginBean.logout}" action="/login" />
+          <p:menuitem value="Logout" actionListener="#{loginBean.logout}" action="/login" icon="fa fa-sign-out"/>
          </p:submenu>
        
     </p:menu>
