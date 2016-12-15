@@ -43,7 +43,7 @@
        <p:selectOneMenu id="inputnomeDispos" value="#{searchMF.nomeDispositivo}" update="@form" style="width:125px" required="true">
             <f:selectItem itemLabel="Select One" itemValue="" />
             <f:selectItems value="#{searchMF.modelli}" />
-             <p:ajax event="itemSelect" listener="#{searchMF.actionModello}" update="Table selectedTable isAperto isRT inputnrapportoprovas"/>
+             <p:ajax event="itemSelect" listener="#{searchMF.actionModello}" update="selectedTable isAperto isRT inputnrapportoprovas"/>
        </p:selectOneMenu>
              
        <p:outputLabel value="Numero Rapporto di Prova:" for="inputnrapportoprovas" />
