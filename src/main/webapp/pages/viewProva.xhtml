@@ -80,28 +80,28 @@ function stop() {
              
                
                <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-search" actionListener="#{menuView.viewallegato}" update="" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="fa fa-search" actionListener="#{menuView.viewallegato}" update="" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
               <!--       <f:setPropertyActionListener target="#{viewProva.prova}" value="#{prove}" />--> 
                     </p:commandButton>
                 </p:column>
                 
                 <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-arrowthick-1-s" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
+                 <p:commandButton icon="fa fa-fw fa-download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" immediate="true">  <!--  oncomplete="PF('ProveDialog').show()"--> 
           				    <f:setPropertyActionListener target="#{viewProva.selecteda}" value="#{allegato}"/>
           				   <p:fileDownload value="#{viewProva.download}" />
                     </p:commandButton>
                 </p:column>
              <p:column style="width:32px">
-                 <p:commandButton icon="ui-icon-close" immediate="true"  update="@form" action="#{viewProva.remallegato}">  
+                 <p:commandButton icon="fa fa-close" immediate="true"  update="@form" action="#{viewProva.remallegato}">  
                     <f:setPropertyActionListener target="#{viewProva.selecteda}" value="#{allegato}"/>
                     </p:commandButton>
                 </p:column> 
             </p:dataTable>
   
        <p:separator />
-    <p:splitButton value="Save" actionListener="#{viewProva.save}" action="#{viewProva.go}" style="width:200px;" update="msgs" icon="ui-icon-disk">
+    <p:splitButton value="Save" actionListener="#{viewProva.save}" action="#{viewProva.go}" style="width:200px;" update="msgs" icon="fa fa-fw fa-save">
         <p:separator />
-        <p:menuitem value="Reset" actionListener="#{viewProva.reset}" immediate="true" ajax="false"  icon="ui-icon-close" >
+        <p:menuitem value="Reset" actionListener="#{viewProva.reset}" immediate="true" ajax="false"  icon="fa fa-close" >
          <p:resetInput target="panel" />
         </p:menuitem>
     </p:splitButton>

@@ -43,10 +43,10 @@ public class SelectProve {
 	@PostConstruct
 	public void init() {
 		//if(ds==null)
-			ds = new FactoryLocal();
-	//	prove = new ArrayList<>();
-	//	modello = new ModelloMF();
-	//	ditta = new Ditta();
+		ds = new FactoryLocal();
+		//	prove = new ArrayList<>();
+		//	modello = new ModelloMF();
+		//	ditta = new Ditta();
 	}
 
 	public String getNomeDitta() {
@@ -107,12 +107,18 @@ public class SelectProve {
 	}
 
 	public List<ModelloMF> completeModelloMF(String query) {
-		return ditta.queryByName(query);
+		if(ditta!=null){
+			return ditta.queryByName(query);
+		}else
+			return new ArrayList<>();
 	}
 
 
 	public List<Ditta> completeDitta(String query) {
-		return ds.queryByName(query);
+		if(ds!=null){
+			return ds.queryByName(query);
+		}else
+			return new ArrayList<>();
 	}
 
 
@@ -146,7 +152,7 @@ public class SelectProve {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
-	
+
 
 
 }
