@@ -21,6 +21,8 @@ public class InsertMF {
 	private String numeroRapportoProva;
 	private boolean value;
 	private boolean esterno;
+	private boolean moduloinvio;
+	private boolean adattato;
 
 	@PostConstruct
 	public void init() {
@@ -32,6 +34,30 @@ public class InsertMF {
 
 	
 	
+	public boolean isModuloinvio() {
+		return moduloinvio;
+	}
+
+
+
+	public void setModuloinvio(boolean moduloinvio) {
+		this.moduloinvio = moduloinvio;
+	}
+
+
+
+	public boolean isAdattato() {
+		return adattato;
+	}
+
+
+
+	public void setAdattato(boolean adattato) {
+		this.adattato = adattato;
+	}
+
+
+
 	public boolean isEsterno() {
 		return esterno;
 	}
@@ -113,6 +139,16 @@ public class InsertMF {
 	    }
 	 public void addMessageA() {
 	        String summary = esterno ? "Checked" : "Unchecked";
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+	    }
+	 
+	 public void addMessagemodulo() {
+	        String summary = moduloinvio ? "Checked" : "Unchecked";
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
+	    }
+	 
+	 public void addMessageAgg() {
+	        String summary = adattato ? "Checked" : "Unchecked";
 	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
 	    }
 }

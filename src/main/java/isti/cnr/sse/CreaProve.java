@@ -31,6 +31,8 @@ public class CreaProve {
 	private boolean value;
 	private Date date;
 	private boolean esterno;
+	private boolean moduloinvio;
+	private boolean adattato;
 	private Ditta ditta = new Ditta();
 
 
@@ -62,6 +64,34 @@ public class CreaProve {
 
 
 	
+
+	public boolean isModuloinvio() {
+		return moduloinvio;
+	}
+
+
+
+
+	public void setModuloinvio(boolean moduloinvio) {
+		this.moduloinvio = moduloinvio;
+	}
+
+
+
+
+	public boolean isAdattato() {
+		return adattato;
+	}
+
+
+
+
+	public void setAdattato(boolean adattato) {
+		this.adattato = adattato;
+	}
+
+
+
 
 	public boolean isEsterno() {
 		return esterno;
