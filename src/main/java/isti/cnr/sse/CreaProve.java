@@ -32,7 +32,7 @@ public class CreaProve {
 	private Date date;
 	private boolean esterno;
 	private boolean moduloinvio;
-	private boolean adattato;
+	private boolean originale;
 	private Ditta ditta = new Ditta();
 
 
@@ -79,15 +79,20 @@ public class CreaProve {
 
 
 
-	public boolean isAdattato() {
-		return adattato;
+	
+
+
+
+
+	public boolean isOriginale() {
+		return originale;
 	}
 
 
 
 
-	public void setAdattato(boolean adattato) {
-		this.adattato = adattato;
+	public void setOriginale(boolean originale) {
+		this.originale = originale;
 	}
 
 

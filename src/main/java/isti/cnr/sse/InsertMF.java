@@ -22,7 +22,7 @@ public class InsertMF {
 	private boolean value;
 	private boolean esterno;
 	private boolean moduloinvio;
-	private boolean adattato;
+	private boolean originale;
 
 	@PostConstruct
 	public void init() {
@@ -46,14 +46,18 @@ public class InsertMF {
 
 
 
-	public boolean isAdattato() {
-		return adattato;
+	
+
+
+
+	public boolean isOriginale() {
+		return originale;
 	}
 
 
 
-	public void setAdattato(boolean adattato) {
-		this.adattato = adattato;
+	public void setOriginale(boolean orginale) {
+		this.originale = orginale;
 	}
 
 
@@ -148,7 +152,7 @@ public class InsertMF {
 	    }
 	 
 	 public void addMessageAgg() {
-	        String summary = adattato ? "Checked" : "Unchecked";
+	        String summary = originale ? "Checked" : "Unchecked";
 	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
 	    }
 }

@@ -45,8 +45,8 @@
             <p:ajax update="msgs" listener="#{insertMF.addMessageA}" />
         </p:selectBooleanCheckbox>
      
-      <p:outputLabel value="Adattato o Aggiornato?:" for="isaggiornato" />
-      <p:selectBooleanCheckbox  id="isaggiornato" value="#{insertMF.adattato}">
+      <p:outputLabel value="Originale?:" for="isoriginale" />
+      <p:selectBooleanCheckbox  id="isoriginale" value="#{insertMF.originale}">
             <p:ajax update="msgs" listener="#{insertMF.addMessageAgg}" />
         </p:selectBooleanCheckbox>
         
@@ -71,7 +71,7 @@
                     <f:setPropertyActionListener target="#{creaProve.numeroRapportoProva}" value="#{insertMF.numeroRapportoProva}" />
                     <f:setPropertyActionListener target="#{creaProve.value}" value="#{insertMF.value}" /> 
                     <f:setPropertyActionListener target="#{creaProve.esterno}" value="#{insertMF.esterno}" />  
-                    <f:setPropertyActionListener target="#{creaProve.adattato}" value="#{insertMF.adattato}" />  
+                    <f:setPropertyActionListener target="#{creaProve.originale}" value="#{insertMF.originale}" />  
                     <f:setPropertyActionListener target="#{creaProve.moduloinvio}" value="#{insertMF.moduloinvio}" />  
                     </p:commandButton>
     
